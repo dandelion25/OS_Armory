@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <name>Outlander Solutions - Armory</name>
+  <author>Mjeiouws</author>
+  <supportedVersions>
+    <li>1.4</li>
+    <li>1.5</li>
+  </supportedVersions>
+  <packageId>Mjeiouws.Armory</packageId>
+  <description>Rimworld weaponry for the discerning customer.</description>
+  <modDependencies>
+		<li>
+			<packageId>OskarPotocki.VanillaFactionsExpanded.Core</packageId>
+			<displayName>Vanilla Expanded Framework</displayName>
+		</li>
+	</modDependencies>
+  <loadAfter>
+    <li>Ludeon.RimWorld</li>
+	<li>OskarPotocki.VanillaFactionsExpanded.Core</li>
+  </loadAfter>
+</ModMetaData>
+
+

@@ -1,0 +1,82 @@
+
+  <AbilityDef>
+    <defName>MJArmory_Hellbore_Ability</defName>
+    <label>hellbore blast</label>
+    <description>Energize uranium to discharge an intense ray of gamma radiation.</description>
+    <iconPath>Projectiles/Hellbore/Ability_Hellbore_FadeOut/Ability_Hellbore_FadeOutB</iconPath>
+    <aiCanUse>true</aiCanUse>
+    <ai_IsIncendiary>true</ai_IsIncendiary>
+    <warmupStartSound>EnergyShield_Reset</warmupStartSound>
+    <showOnCharacterCard>false</showOnCharacterCard>
+    <verbProperties>
+      <verbClass>Verb_AbilityShoot</verbClass>
+      <hasStandardCommand>true</hasStandardCommand>
+      <defaultProjectile>MJArmory_Hellbore_AbilityBlast</defaultProjectile>
+      <warmupTime>2.0</warmupTime>
+      <ai_AvoidFriendlyFireRadius>4</ai_AvoidFriendlyFireRadius>
+      <range>36.9</range>
+      <soundCast>Explosion_Vaporize</soundCast>
+      <soundCastTail>GunTail_Heavy</soundCastTail>
+      <muzzleFlashScale>9</muzzleFlashScale>
+      <ticksBetweenBurstShots>40</ticksBetweenBurstShots>
+      <burstShotCount>2</burstShotCount>
+      <targetParams>
+        <canTargetLocations>true</canTargetLocations>
+      </targetParams>
+    </verbProperties>
+  </AbilityDef>
+
+  <VFECore.ExpandableProjectileDef ParentName="BaseBullet">
+    <defName>MJArmory_Hellbore_AbilityBlast</defName>
+    <label>hellbore blast</label>
+    <thingClass>VFECore.GaussProjectile</thingClass>
+    <graphicData>
+      <texPath>Projectiles/Hellbore/Ability_Hellbore_FadeIn</texPath>
+      <texPathFadeOut>Projectiles/Hellbore/Ability_Hellbore_FadeOut</texPathFadeOut>
+      <shaderType>MoteGlow</shaderType>
+    </graphicData>
+    <projectile>
+      <damageDef>Flame</damageDef>
+      <speed>1000</speed>
+      <damageAmountBase>6</damageAmountBase>
+      <armorPenetrationBase>1.50</armorPenetrationBase>
+      <stoppingPower>0.2</stoppingPower>
+      <explosionRadius>0.1</explosionRadius >
+      <ai_IsIncendiary>true</ai_IsIncendiary>
+    </projectile>
+    <reachMaxRangeAlways>true</reachMaxRangeAlways>
+    <drawOffscreen>true</drawOffscreen>
+    <minDistanceToAffect>2.9</minDistanceToAffect>
+    <lifeTimeDuration>45</lifeTimeDuration>
+    <widthScaleFactor>0.3</widthScaleFactor>
+    <heightScaleFactor>1</heightScaleFactor>
+    <startingPositionOffset>(0, 0, -1)</startingPositionOffset>
+    <totalSizeScale>1.15</totalSizeScale>
+    <tickFrameRate>6</tickFrameRate>
+    <finalTickFrameRate>2</finalTickFrameRate>
+    <tickDamageRate>5</tickDamageRate>
+    <dealsDamageOnce>false</dealsDamageOnce>
+    <disableVanillaDamageMethod>true</disableVanillaDamageMethod>
+    <stopWhenHit>false</stopWhenHit>
+    <stopWhenHitAt>
+      <li>CollapsedRocks</li>
+      <li>MineableSteel</li>
+      <li>MineableSilver</li>
+      <li>MineableGold</li>
+      <li>MineableUranium</li>
+      <li>MineablePlasteel</li>
+      <li>MineableJade</li>
+      <li>MineableComponentsIndustrial</li>
+      <li>RaisedRocks</li>
+      <li>Sandstone</li>
+      <li>SmoothedSandstone</li>
+      <li>Granite</li>
+      <li>SmoothedGranite</li>
+      <li>Limestone</li>
+      <li>SmoothedLimestone</li>
+      <li>Slate</li>
+      <li>SmoothedSlate</li>
+      <li>Marble</li>
+      <li>SmoothedMarble</li>
+    </stopWhenHitAt>
+  </VFECore.ExpandableProjectileDef>

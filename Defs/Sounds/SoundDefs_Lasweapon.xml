@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <SoundDef>
+    <defName>Mjeiouws_Lasflash_Puny</defName>  
+    <context>MapOnly</context>
+    <maxSimultaneous>1</maxSimultaneous>  
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Lasflash/Lasflash_Puny</clipPath>
+          </li>
+        </grains>      
+        <pitchRange>0.83~1.15</pitchRange>
+        <volumeRange>70~75</volumeRange>  
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <SoundDef>
+    <defName>Mjeiouws_Lasflash_Short</defName>  
+    <context>MapOnly</context>
+    <maxSimultaneous>1</maxSimultaneous>  
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Lasflash/Lasflash_Short</clipPath>
+          </li>
+        </grains>      
+        <pitchRange>0.83~1.15</pitchRange>
+        <volumeRange>80~90</volumeRange>  
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <SoundDef>
+    <defName>Mjeiouws_Lasflash_Heavy</defName>  
+    <context>MapOnly</context>
+    <maxSimultaneous>1</maxSimultaneous>  
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Lasflash/Lasflash_Heavy</clipPath>
+          </li>
+        </grains>
+        <pitchRange>0.83~1.15</pitchRange>
+        <volumeRange>65~75</volumeRange>  
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <SoundDef>
+    <defName>Mjeiouws_Lasflash_Smoking</defName>  
+    <context>MapOnly</context>
+    <maxSimultaneous>1</maxSimultaneous>  
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Lasflash/Lasflash_Smoking</clipPath>
+          </li>
+        </grains>
+        <pitchRange>0.83~1.15</pitchRange>
+        <volumeRange>92~98</volumeRange>  
+      </li>
+    </subSounds>
+  </SoundDef>
+</Defs>

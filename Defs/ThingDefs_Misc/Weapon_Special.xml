@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+<!-- Hellbore: reloadable beam cannon (note - WIP!) -->
+
+  <ThingDef ParentName="BaseGun">
+    <defName>MJArmory_Hellbore</defName>
+    <label>hellbore tube</label>
+    <description>A spaceship-grade beamer capable of driving intense atomic discharges. Without a mount and its associated cooling systems, hellbore cavities must be refurbished after each power cycle.\n\nBecause of its unwieldiness, single-shot limitation, and the unpredictable destruction it causes, it's said that one must be slightly crazy to use this weapon.</description>
+    <tickerType>Normal</tickerType>
+    <smeltable>false</smeltable>
+    <graphicData>
+      <texPath>Weapons/Hellbore</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+      <MarketValue>2300</MarketValue>
+      <Mass>30</Mass>
+      <AccuracyTouch>0.55</AccuracyTouch>
+      <AccuracyShort>0.64</AccuracyShort>
+      <AccuracyMedium>0.73</AccuracyMedium>
+      <AccuracyLong>0.65</AccuracyLong>
+      <RangedWeapon_Cooldown>3.5</RangedWeapon_Cooldown>
+    </statBases>
+    <techLevel>Spacer</techLevel>
+    <weaponTags>
+      <li>Gun</li>
+    </weaponTags>
+    <weaponClasses>
+      <li>RangedHeavy</li>
+    </weaponClasses>
+    <tradeTags>
+      <li>ExoticMisc</li>
+      <li>WeaponRanged</li>
+    </tradeTags>
+    <thingSetMakerTags>
+      <li>RewardStandardLowFreq</li>
+    </thingSetMakerTags>
+    <relicChance>0</relicChance>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>MJArmory_Beampulse_Narrow</defaultProjectile>
+        <warmupTime>2.8</warmupTime>
+        <range>30.9</range>
+        <soundCast>Mjeiouws_Lasflash_Puny</soundCast>
+        <soundCastTail>GunTail_Heavy</soundCastTail>
+        <muzzleFlashScale>9</muzzleFlashScale>
+        <ticksBetweenBurstShots>20</ticksBetweenBurstShots>
+        <burstShotCount>6</burstShotCount>
+        <targetParams><canTargetLocations>true</canTargetLocations></targetParams>
+      </li>
+    </verbs>
+    <tools>
+      <li>
+        <label>barrel</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>11.7</power>
+        <cooldownTime>2.6</cooldownTime>
+      </li>
+    </tools>
+    <comps Inherit="False">
+      <li Class="CompProperties_EquippableAbilityReloadable">
+        <abilityDef>MJArmory_Hellbore_Ability</abilityDef>
+        <maxCharges>1</maxCharges>
+        <soundReload>Standard_Reload</soundReload>
+        <chargeNoun>gamma liner</chargeNoun>
+        <ammoDef>Steel</ammoDef>
+        <ammoCountPerCharge>20</ammoCountPerCharge>
+        <baseReloadTicks>420</baseReloadTicks>
+      </li>
+      <li Class="CompProperties_Forbiddable"/>
+      <li Class="CompProperties_Biocodable"/>
+      <li>
+        <compClass>CompQuality</compClass>
+      </li>
+      <li Class="CompProperties_Art">
+        <nameMaker>NamerArtWeaponGun</nameMaker>
+        <descriptionMaker>ArtDescription_WeaponGun</descriptionMaker>
+        <minQualityForArtistic>Excellent</minQualityForArtistic>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <AbilityDef>
+    <defName>MJArmory_Hellbore_Ability</defName>
+    <label>hellbeam</label>
+    <description>Engage .</description>
+    <iconPath>Projectiles/HellBeam/HellBeam</iconPath>
+    <aiCanUse>true</aiCanUse>
+    <ai_IsIncendiary>true</ai_IsIncendiary>
+    <warmupStartSound>Interact_Ignite</warmupStartSound>
+    <showOnCharacterCard>false</showOnCharacterCard>
+    <verbProperties>
+      <verbClass>Verb_ShootBeam</verbClass>
+      <hasStandardCommand>true</hasStandardCommand>
+      <warmupTime>2.0</warmupTime>
+      <ai_AvoidFriendlyFireRadius>5</ai_AvoidFriendlyFireRadius>
+      <range>46.9</range>
+      <minRange>3.9</minRange>
+      <beamFullWidthRange>11</beamFullWidthRange>
+      <burstShotCount>30</burstShotCount>
+      <showBurstShotStats>false</showBurstShotStats>
+      <requireLineOfSight>true</requireLineOfSight>
+      <beamWidth>6</beamWidth>
+      <ticksBetweenBurstShots>2</ticksBetweenBurstShots>
+      <beamDamageDef>Mjeiouws_HellBeamDamage</beamDamageDef>
+      <soundCastTail>GunTail_Heavy</soundCastTail>
+      <muzzleFlashScale>9</muzzleFlashScale>
+      <soundCastBeam>Explosion_Vaporize</soundCastBeam>
+      <beamGroundFleckDef>Fleck_Vaporize</beamGroundFleckDef>
+      <beamFleckChancePerTick>0.32</beamFleckChancePerTick>
+      <beamMaxDeviation>0.5</beamMaxDeviation>
+      <beamCurvature>0.2</beamCurvature>
+      <beamMoteDef>Mote_MJHellBeamBase</beamMoteDef>
+      <beamEndEffecterDef>MJHellBeam_End</beamEndEffecterDef>
+      <beamChanceToStartFire>0.85</beamChanceToStartFire>
+      <beamChanceToAttachFire>0.85</beamChanceToAttachFire>
+      <beamFireSizeRange>0.55~0.85</beamFireSizeRange>
+      <beamLineFleckDef>Fleck_BeamSpark</beamLineFleckDef>
+      <beamStartOffset>0.8</beamStartOffset>
+      <beamHitsNeighborCells>true</beamHitsNeighborCells>
+      <beamCantHitWithinMinRange>true</beamCantHitWithinMinRange>
+      <beamSetsGroundOnFire>true</beamSetsGroundOnFire>
+      <ai_BeamIsIncendiary>true</ai_BeamIsIncendiary>
+      <beamLineFleckChanceCurve>
+        <points>
+          <li>(0, 0)</li>
+          <li>(0.65, 0.4)</li>
+          <li>(1, 0.75)</li>
+        </points>
+      </beamLineFleckChanceCurve>
+      <targetParams>
+        <canTargetLocations>true</canTargetLocations>
+      </targetParams>
+    </verbProperties>
+  </AbilityDef>
+
+</Defs>

@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+<!-- ====================== Setup  ===================== -->
+
+  <ThingDef>
+    <defName>MJScavengedVWELBeamGraphic</defName>
+    <thingClass>VanillaWeaponsExpandedLaser.LaserBeamGraphic</thingClass>
+    <drawOffscreen>true</drawOffscreen>
+    <label>laser beam</label>
+    <category>Projectile</category>
+    <tickerType>Normal</tickerType>
+    <altitudeLayer>MoteOverhead</altitudeLayer>
+    <useHitPoints>False</useHitPoints>
+    <neverMultiSelect>True</neverMultiSelect>
+  </ThingDef>
+
+  <ThingDef Abstract="True" Name="MJLG_Bullet_LaserGeneric" ParentName="BaseBullet">
+    <thingClass>VanillaWeaponsExpandedLaser.LaserBeam</thingClass>
+    <drawOffscreen>true</drawOffscreen>
+    <beamGraphic>MJScavengedVWELBeamGraphic</beamGraphic>
+    <graphicData>
+      <graphicClass>Graphic_Single</graphicClass>
+      <texPath>Projectiles/MJ_Beampulse_Large</texPath>
+      <shaderType>TransparentPostLight</shaderType>
+      <drawSize>1.5</drawSize>
+    </graphicData>
+    <explosionEffect>MJScavengedVWELLaserImpact</explosionEffect>
+    <hitLivingEffect>MJScavengedVWELLaserLivingImpact</hitLivingEffect>
+    <projectile>
+      <damageDef>Bomb</damageDef>
+      <speed>10000</speed>
+    </projectile>
+    <seam>0.25</seam>
+  </ThingDef>
+
+<!-- ====================== Projectile Defs  ===================== -->
+
+  <ThingDef ParentName="MJLG_Bullet_LaserGeneric" Class="VanillaWeaponsExpandedLaser.LaserBeamDef">
+    <defName>MJArmory_Beampulse_Narrow</defName>
+    <label>Tuned Laser Beam</label>
+    <description>A tightly focused beam of light that vaporizes the target.</description>
+    <textures><li>Projectiles/MJ_Beampulse_Small</li></textures>
+    <seam>0.1</seam>
+    <causefireChance>0.10</causefireChance>
+    <beamWidth>1</beamWidth>
+    <lifetime>30</lifetime>
+    <projectile><damageDef>Mjeiouws_Blast</damageDef>
+		<damageAmountBase>8</damageAmountBase>
+		<armorPenetrationBase>0.72</armorPenetrationBase>
+		<stoppingPower>0.5</stoppingPower>
+    </projectile>
+  </ThingDef>
+  
+  <ThingDef ParentName="MJLG_Bullet_LaserGeneric" Class="VanillaWeaponsExpandedLaser.LaserBeamDef">
+    <defName>MJArmory_Beampulse_Wide</defName>
+    <label>Coarse Laser Beam</label>
+    <description>An haphazardly charged beam of light that vaporizes the target.</description>
+    <textures><li>Projectiles/MJ_Beampulse_Large</li></textures>
+    <seam>0.1</seam>
+    <causefireChance>0.85</causefireChance>
+    <beamWidth>1.5</beamWidth>
+    <lifetime>100</lifetime>
+    <projectile>
+		<damageDef>Mjeiouws_Blast</damageDef>
+		<damageAmountBase>30</damageAmountBase>
+		<armorPenetrationBase>0.21</armorPenetrationBase>
+		<stoppingPower>3</stoppingPower>
+		<extraDamages>
+			<li><def>Stun</def><amount>3</amount></li>
+			<li><def>Burn</def><amount>15</amount></li>
+		</extraDamages>
+    </projectile>
+  </ThingDef>
+
+<!-- ====================== Weapon Defs  ===================== -->
+
+  <ThingDef ParentName="BaseHumanMakeableGun">
+    <defName>MJArmory_ChipPistol</defName>
+    <label>Diode Pistol</label>
+    <description>A cheap single-shot diode laser pistol. The diodes are boosted far past their limits, necessitating replacement after each shot. The resulting beam is less focused, but incredibly damaging.</description>
+    <techLevel>Spacer</techLevel>
+    <possessionCount>1</possessionCount>
+    <graphicData>
+      <texPath>Weapons/ChipPistol</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>1.2</drawSize>
+    </graphicData>
+    <uiIconScale>1.5</uiIconScale>
+    <soundInteract>Interact_Autopistol</soundInteract>
+    <recipeMaker>
+      <researchPrerequisite>Fabrication</researchPrerequisite>
+      <skillRequirements><Crafting>8</Crafting></skillRequirements>
+      <recipeUsers Inherit="False"><li>FabricationBench</li></recipeUsers>
+      <displayPriority>405</displayPriority>
+    </recipeMaker>
+    <weaponTags><li>SpacerGun</li><li>Autopistol</li></weaponTags>
+    <weaponClasses><li>RangedLight</li></weaponClasses>
+    <statBases>
+      <WorkToMake>14000</WorkToMake>
+      <Mass>1.6</Mass>
+      <AccuracyTouch>0.98</AccuracyTouch>
+      <AccuracyShort>0.85</AccuracyShort>
+      <AccuracyMedium>0.45</AccuracyMedium>
+      <AccuracyLong>0.20</AccuracyLong>
+      <RangedWeapon_Cooldown>2.10</RangedWeapon_Cooldown>
+    </statBases>
+    <costList>
+      <Steel>25</Steel>
+      <ComponentIndustrial>6</ComponentIndustrial>
+      <Chemfuel>85</Chemfuel>
+    </costList>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>MJArmory_Beampulse_Wide</defaultProjectile>
+        <warmupTime>0.25</warmupTime>
+        <range>25.9</range>
+        <soundCast>Mjeiouws_Lasflash_Heavy</soundCast>
+        <soundCastTail>GunTail_Heavy</soundCastTail>
+        <muzzleFlashScale>9</muzzleFlashScale>
+        <ticksBetweenBurstShots>10</ticksBetweenBurstShots>
+        <burstShotCount>1</burstShotCount>
+        <targetParams><canTargetLocations>true</canTargetLocations></targetParams>
+      </li>
+    </verbs>
+    <tools>
+      <li>
+        <label>grip</label>
+        <capacities><li>Blunt</li></capacities>
+        <power>9</power>
+        <cooldownTime>2</cooldownTime>
+      </li>
+      <li>
+        <label>barrel</label>
+        <capacities><li>Blunt</li><li>Poke</li></capacities>
+        <power>9</power>
+        <cooldownTime>2</cooldownTime>
+      </li>
+    </tools>
+  </ThingDef>
+
+<ThingDef ParentName="BaseHumanMakeableGun">
+    <defName>MJArmory_ChipRifle</defName>
+    <label>Diode Rifle</label>
+    <description>A cheap diode laser rifle. The power output is high, but the components are rated for low energies. Computerized beam tuning greatly increases its armor penetration.</description>
+    <techLevel>Spacer</techLevel>
+    <graphicData>
+      <texPath>Weapons/ChipRifle</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>1.5</drawSize>
+    </graphicData>
+    <soundInteract>Interact_ChargeRifle</soundInteract>
+    <statBases>
+      <WorkToMake>20000</WorkToMake>
+      <Mass>5.4</Mass>
+      <AccuracyTouch>0.55</AccuracyTouch>
+      <AccuracyShort>0.64</AccuracyShort>
+      <AccuracyMedium>0.73</AccuracyMedium>
+      <AccuracyLong>0.65</AccuracyLong>
+      <RangedWeapon_Cooldown>1.20</RangedWeapon_Cooldown>
+    </statBases>
+    <recipeMaker><researchPrerequisite>Fabrication</researchPrerequisite>
+      <skillRequirements><Crafting>8</Crafting></skillRequirements>
+      <recipeUsers Inherit="False"><li>FabricationBench</li></recipeUsers>
+      <displayPriority>200</displayPriority>
+    </recipeMaker>
+    <costList>
+      <Steel>25</Steel>
+      <Uranium>20</Uranium>
+      <ComponentIndustrial>8</ComponentIndustrial>
+      <Chemfuel>105</Chemfuel>
+    </costList>
+    <thingSetMakerTags><li>RewardStandardQualitySuper</li></thingSetMakerTags>
+    <weaponTags><li>SpacerGun</li></weaponTags>
+    <tradeTags><li>WeaponRanged</li></tradeTags>
+    <weaponClasses><li>RangedLight</li></weaponClasses>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>MJArmory_Beampulse_Narrow</defaultProjectile>
+        <warmupTime>0.90</warmupTime>
+        <range>30.9</range>
+        <ticksBetweenBurstShots>3</ticksBetweenBurstShots>
+        <burstShotCount>3</burstShotCount>
+        <soundCast>Mjeiouws_Lasflash_Puny</soundCast>
+        <soundCastTail>GunTail_Heavy</soundCastTail>
+        <muzzleFlashScale>8</muzzleFlashScale>
+        <targetParams><canTargetLocations>true</canTargetLocations></targetParams>
+      </li>
+    </verbs>
+    <tools>
+      <li>
+        <label>stock</label>
+        <capacities><li>Blunt</li></capacities>
+        <power>9</power>
+        <cooldownTime>2</cooldownTime>
+      </li>
+      <li>
+        <label>barrel</label>
+        <capacities><li>Blunt</li><li>Poke</li></capacities>
+        <power>9</power>
+        <cooldownTime>2</cooldownTime>
+      </li>
+    </tools>
+  </ThingDef>
+
+<ThingDef ParentName="BaseHumanMakeableGun">
+    <defName>MJArmory_ChipBlaster</defName>
+    <label>Diode Blaster</label>
+    <description>A bulky diode laser with parallel chambers and heavy cooling for sustained destructive fire. While somewhat unwieldy, its long bursts allow it to punch through heavily armored targets. Computerized beam tuning greatly increases its armor penetration.</description>
+    <techLevel>Spacer</techLevel>
+    <graphicData>
+      <texPath>Weapons/ChipBlaster</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>1.5</drawSize>
+    </graphicData>
+    <soundInteract>Interact_ChargeRifle</soundInteract>
+    <statBases>
+      <WorkToMake>25000</WorkToMake>
+      <Mass>10.5</Mass>
+      <AccuracyTouch>0.30</AccuracyTouch>
+      <AccuracyShort>0.38</AccuracyShort>
+      <AccuracyMedium>0.54</AccuracyMedium>
+      <AccuracyLong>0.72</AccuracyLong>
+      <RangedWeapon_Cooldown>4.00</RangedWeapon_Cooldown>
+    </statBases>
+    <recipeMaker>
+      <researchPrerequisite>Fabrication</researchPrerequisite>
+      <skillRequirements><Crafting>11</Crafting></skillRequirements>
+      <recipeUsers Inherit="False"><li>FabricationBench</li></recipeUsers>
+      <displayPriority>200</displayPriority>
+    </recipeMaker>
+    <costList>
+      <Steel>120</Steel>
+      <Uranium>80</Uranium>
+      <ComponentIndustrial>21</ComponentIndustrial>
+      <Chemfuel>180</Chemfuel>
+    </costList>
+    <thingSetMakerTags><li>RewardStandardQualitySuper</li></thingSetMakerTags>
+    <weaponTags><li>SpacerGun</li></weaponTags>
+    <tradeTags><li>WeaponRanged</li></tradeTags>
+    <weaponClasses><li>RangedHeavy</li></weaponClasses>
+    <equippedStatOffsets><MoveSpeed>-0.30</MoveSpeed></equippedStatOffsets>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>MJArmory_Beampulse_Narrow</defaultProjectile>
+        <warmupTime>2.10</warmupTime>
+        <range>35.9</range>
+        <ticksBetweenBurstShots>4</ticksBetweenBurstShots>
+        <burstShotCount>15</burstShotCount>
+        <soundCast>Mjeiouws_Lasflash_Short</soundCast>
+        <soundCastTail>GunTail_Heavy</soundCastTail>
+        <muzzleFlashScale>12</muzzleFlashScale>
+        <targetParams><canTargetLocations>true</canTargetLocations></targetParams>
+      </li>
+    </verbs>
+    <tools>
+      <li>
+        <label>stock</label>
+        <capacities><li>Blunt</li></capacities>
+        <power>9</power>
+        <cooldownTime>2</cooldownTime>
+      </li>
+      <li>
+        <label>barrel</label>
+        <capacities><li>Blunt</li><li>Poke</li></capacities>
+        <power>9</power>
+        <cooldownTime>2</cooldownTime>
+      </li>
+    </tools>
+  </ThingDef>
+  
+
+<ThingDef ParentName="BaseHumanMakeableGun">
+    <defName>MJArmory_ChipMusket</defName>
+    <label>Diode Musket</label>
+    <description>A cheap single-shot diode laser musket. Its ruggedized components can withstand the high pulse energies needed to achieve its extreme range, but it is heavier and lacks tunability. Its optics must be given time to settle when aiming, and most other weapons outclass it at close range.</description>
+    <techLevel>Spacer</techLevel>
+    <graphicData>
+      <texPath>Weapons/ChipMusket</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>1.5</drawSize>
+    </graphicData>
+    <soundInteract>Interact_ChargeRifle</soundInteract>
+    <statBases>
+      <WorkToMake>22000</WorkToMake>
+      <Mass>6.2</Mass>
+      <AccuracyTouch>0.50</AccuracyTouch>
+      <AccuracyShort>0.64</AccuracyShort>
+      <AccuracyMedium>0.90</AccuracyMedium>
+      <AccuracyLong>0.86</AccuracyLong>
+      <RangedWeapon_Cooldown>2.60</RangedWeapon_Cooldown>
+    </statBases>
+    <recipeMaker>
+      <researchPrerequisite>Fabrication</researchPrerequisite>
+      <skillRequirements><Crafting>8</Crafting></skillRequirements>
+      <recipeUsers Inherit="False"><li>FabricationBench</li></recipeUsers>
+      <displayPriority>200</displayPriority>
+    </recipeMaker>
+    <costList>
+      <Steel>40</Steel>
+      <Uranium>10</Uranium>
+      <ComponentIndustrial>7</ComponentIndustrial>
+      <Chemfuel>180</Chemfuel>
+    </costList>
+    <thingSetMakerTags>
+      <li>RewardStandardQualitySuper</li>
+    </thingSetMakerTags>
+    <weaponTags><li>SpacerGun</li></weaponTags>
+    <tradeTags><li>WeaponRanged</li></tradeTags>
+    <weaponClasses><li>RangedHeavy</li></weaponClasses>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>MJArmory_Beampulse_Wide</defaultProjectile>
+        <warmupTime>2.20</warmupTime>
+        <range>54.9</range>
+        <soundCast>Mjeiouws_Lasflash_Smoking</soundCast>
+        <soundCastTail>GunTail_Heavy</soundCastTail>
+        <muzzleFlashScale>16</muzzleFlashScale>
+        <ticksBetweenBurstShots>10</ticksBetweenBurstShots>
+        <burstShotCount>1</burstShotCount>
+        <targetParams><canTargetLocations>true</canTargetLocations></targetParams>
+      </li>
+    </verbs>
+    <tools>
+      <li>
+        <label>stock</label>
+        <capacities><li>Blunt</li></capacities>
+        <power>9</power>
+        <cooldownTime>2</cooldownTime>
+      </li>
+      <li>
+        <label>barrel</label>
+        <capacities><li>Blunt</li><li>Poke</li></capacities>
+        <power>9</power>
+        <cooldownTime>2</cooldownTime>
+      </li>
+    </tools>
+  </ThingDef>
+
+  
+</Defs>

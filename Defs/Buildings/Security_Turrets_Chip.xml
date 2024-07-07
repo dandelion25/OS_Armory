@@ -23,7 +23,7 @@
       </shadowData>
     </graphicData>
     <uiIconPath>Building/Security/TurretDiodeMini_MenuIcon</uiIconPath>
-    <uiIconScale>0.90</uiIconScale>
+    <uiIconScale>1.20</uiIconScale>
     <minifiedDef>MinifiedThing</minifiedDef>
     <altitudeLayer>Building</altitudeLayer>
     <stealable>false</stealable>
@@ -80,7 +80,6 @@
     <costStuffCount>30</costStuffCount>
     <costList>
       <Steel>70</Steel>
-      <Uranium>5</Uranium>
       <ComponentIndustrial>4</ComponentIndustrial>
       <Chemfuel>50</Chemfuel>
     </costList>
@@ -88,10 +87,10 @@
     <designationCategory>Security</designationCategory>
     <constructionSkillPrerequisite>5</constructionSkillPrerequisite>
     <building>
-      <combatPower>45</combatPower>   <!-- same as a scavenger -->
+      <combatPower>55</combatPower>
       <ai_combatDangerous>true</ai_combatDangerous>
-      <turretGunDef>Gun_MiniTurret</turretGunDef>
-      <turretBurstCooldownTime>3.5</turretBurstCooldownTime>
+      <turretGunDef>MJArmory_Gun_DiodeMiniTurret</turretGunDef>
+      <turretBurstCooldownTime>1.5</turretBurstCooldownTime>
     </building>
     <placeWorkers>
       <li>PlaceWorker_TurretTop</li>
@@ -116,7 +115,7 @@
       <AccuracyShort>0.70</AccuracyShort>
       <AccuracyMedium>0.75</AccuracyMedium>
       <AccuracyLong>0.64</AccuracyLong>
-      <RangedWeapon_Cooldown>3.5</RangedWeapon_Cooldown>
+      <RangedWeapon_Cooldown>1.5</RangedWeapon_Cooldown>
       <DeteriorationRate>0</DeteriorationRate>
       <Mass>5</Mass>
       <Flammability>0</Flammability>
@@ -147,6 +146,7 @@
     <label>diode blaster turret</label>
     <description>A heavy diode laser turret. its long bursts allow it to punch through heavily armored targets over significant ranges, but its coolant must be refilled periodically to avoid overheating. It cannot fire at close-up targets.</description>
     <uiIconPath>Building/Security/TurretDiodeBlaster_MenuIcon</uiIconPath>
+    <uiIconScale>1.10</uiIconScale>
     <statBases>
       <ShootingAccuracyTurret>0.96</ShootingAccuracyTurret> <!-- like level 8 human shooter -->
     </statBases>
@@ -199,10 +199,10 @@
       <graphicClass>Graphic_Single</graphicClass>
     </graphicData>
     <statBases>
-      <AccuracyTouch>0.28</AccuracyTouch>
-      <AccuracyShort>0.48</AccuracyShort>
-      <AccuracyMedium>0.54</AccuracyMedium>
-      <AccuracyLong>0.72</AccuracyLong>
+      <AccuracyTouch>0.78</AccuracyTouch>
+      <AccuracyShort>0.88</AccuracyShort>
+      <AccuracyMedium>0.94</AccuracyMedium>
+      <AccuracyLong>0.92</AccuracyLong>
       <RangedWeapon_Cooldown>4.5</RangedWeapon_Cooldown>
       <DeteriorationRate>0</DeteriorationRate>
       <Mass>40</Mass>
@@ -215,7 +215,7 @@
         <warmupTime>0</warmupTime>
         <minRange>5.9</minRange>
         <range>30.9</range>
-        <ticksBetweenBurstShots>8</ticksBetweenBurstShots>
+        <ticksBetweenBurstShots>4</ticksBetweenBurstShots>
         <burstShotCount>10</burstShotCount>
         <soundCast>Mjeiouws_Lasflash_Short</soundCast>
         <soundCastTail>GunTail_Heavy</soundCastTail>
@@ -234,7 +234,8 @@
     <defName>MJArmory_Turret_DiodeBurner</defName>
     <label>diode burner turret</label>
     <description>A heavy diode burner turret. Its energetic pulses can strike from long range, but it relies on chemical reactants that must be replenished after firing. It's more accurate at longer ranges, and can't fire at all close up. May explode when damaged.</description>
-    <uiIconPath>Things/Building/Security/TurretDiodeBurner_MenuIcon</uiIconPath>
+    <uiIconPath>Building/Security/TurretDiodeBurner_MenuIcon</uiIconPath>
+    <uiIconScale>1.10</uiIconScale>
     <statBases>
       <ShootingAccuracyTurret>0.98</ShootingAccuracyTurret> <!-- like level 14 human shooter -->
     </statBases>
@@ -276,7 +277,7 @@
     </comps>
     <building>
       <turretGunDef>MJArmory_Gun_DiodeBurnerTurret</turretGunDef>
-      <turretBurstCooldownTime>3.2</turretBurstCooldownTime>
+      <turretBurstCooldownTime>1.7</turretBurstCooldownTime>
     </building>
     <researchPrerequisites>
       <li>Fabrication</li>
@@ -289,15 +290,15 @@
     <label>diode burner laser</label>
     <description>A heavy diode laser designed to attach to a turret. It relies on chemical reactants to amplify its beam, at the cost of reduced coherence and armor penetration.</description>
     <graphicData>
-      <texPath>Things/Building/Security/TurretDiodeBurner_Top</texPath>
+      <texPath>Building/Security/TurretDiodeBurner_Top</texPath>
       <graphicClass>Graphic_Single</graphicClass>
     </graphicData>
     <statBases>
       <AccuracyTouch>0.22</AccuracyTouch>
-      <AccuracyShort>0.43</AccuracyShort>
-      <AccuracyMedium>0.74</AccuracyMedium>
-      <AccuracyLong>0.86</AccuracyLong>
-      <RangedWeapon_Cooldown>3.2</RangedWeapon_Cooldown>
+      <AccuracyShort>0.53</AccuracyShort>
+      <AccuracyMedium>0.94</AccuracyMedium>
+      <AccuracyLong>0.96</AccuracyLong>
+      <RangedWeapon_Cooldown>1.7</RangedWeapon_Cooldown>
       <DeteriorationRate>0</DeteriorationRate>
       <Mass>40</Mass>
       <Flammability>0</Flammability>

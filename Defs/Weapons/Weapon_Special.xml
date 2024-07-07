@@ -107,7 +107,7 @@
       <requireLineOfSight>true</requireLineOfSight>
       <beamWidth>6</beamWidth>
       <ticksBetweenBurstShots>2</ticksBetweenBurstShots>
-      <beamDamageDef>Mjeiouws_HellBeamDamage</beamDamageDef>
+      <beamDamageDef>Mjeiouws_Superheat</beamDamageDef>
       <soundCastTail>GunTail_Heavy</soundCastTail>
       <muzzleFlashScale>9</muzzleFlashScale>
       <soundCastBeam>Explosion_Vaporize</soundCastBeam>

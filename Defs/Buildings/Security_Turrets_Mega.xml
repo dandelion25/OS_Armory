@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+
+  <ThingDef Name="MJArmory_MegaTurretBase" ParentName="BuildingBase" Abstract="True">
+    <thingClass>Building_TurretGun</thingClass>
+    <drawerType>MapMeshAndRealTime</drawerType>
+    <graphicData>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <texPath>Building/Security/TurretSuperHeavy_Base</texPath>
+      <drawSize>(3,3)</drawSize>
+      <damageData>
+        <rect>(0.2,0.2,0.6,0.6)</rect>
+        <cornerTL>Damage/Corner</cornerTL>
+      </damageData>
+      <shadowData>
+        <volume>(2,0.35,1.4)</volume>
+        <offset>(0,0,-0.05)</offset>
+      </shadowData>
+    </graphicData>
+    <altitudeLayer>Building</altitudeLayer>
+    <stealable>false</stealable>
+    <rotatable>false</rotatable>
+    <size>(3,3)</size>
+    <passability>Impassable</passability>
+    <fillPercent>1</fillPercent>
+    <!-- <thingCategories><li>BuildingsSecurity</li></thingCategories> -->
+    <designationCategory>Security</designationCategory>
+    <tickerType>Normal</tickerType>
+    <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+    <statBases>
+      <MaxHitPoints>800</MaxHitPoints>
+      <Flammability>0</Flammability>
+      <WorkToBuild>21000</WorkToBuild>
+      <Mass>500</Mass>
+      <Beauty>-20</Beauty>
+    </statBases>
+    <building>
+      <turretTopDrawSize>(4,4)</turretTopDrawSize>
+      <turretTopOffset>(0, 0.05)</turretTopOffset>
+    </building>
+    <placeWorkers>
+      <li>PlaceWorker_TurretTop</li>
+      <li>PlaceWorker_ShowTurretRadius</li>
+    </placeWorkers>
+    <comps>
+      <li Class="CompProperties_Stunnable">
+        <affectedDamageDefs>
+          <li>Stun</li>
+          <li>EMP</li>
+        </affectedDamageDefs>
+      </li>
+    </comps>
+  </ThingDef>
+
+
+<!-- ======= Charge Mortar ====== -->
+
+  <ThingDef ParentName="MJArmory_MegaTurretBase">
+    <defName>MJArmory_Turret_ChargeMortar</defName>
+    <label>charge megacannon</label>
+    <description>A charged-shot megacannon capable of projecting unstable energy over curving trajectories. While less versatile than a conventional mortar, its rapid fire and shield-breaking capability allow it to suppress even heavily armored targets over long distances.\n\nNote: this building must be connected to a charge network to function.</description>
+    <rotatable>true</rotatable>
+    <!-- nop, not today, mr. megahauler deluxe. <minifiedDef>MinifiedThing</minifiedDef> -->
+    <hasInteractionCell>True</hasInteractionCell>
+    <interactionCellOffset>(0,0,-2)</interactionCellOffset>
+    <uiIconPath>Building/Security/TurretChargeMortar_MenuIcon</uiIconPath>
+    <uiIconScale>0.9</uiIconScale>
+    <comps>
+      <li Class="CompProperties_Forbiddable"/>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>550</basePowerConsumption>
+      </li>
+      <li Class="CompProperties_Flickable"/>
+      <li Class="CompProperties_Breakdownable"/>
+      <li Class="PipeSystem.CompProperties_Resource">
+        <pipeNet>MJ_ChargeNet</pipeNet>
+      </li>
+      <li Class="CompProperties_Mannable">
+        <manWorkType>Violent</manWorkType>
+      </li>
+      <li Class="CompProperties_Refuelable">
+        <fuelLabel>Shots until recharge</fuelLabel>
+        <fuelGizmoLabel>Charge cell</fuelGizmoLabel>
+        <outOfFuelMessage>Out of charge</outOfFuelMessage>
+        <fuelFilter><thingDefs><li>MJ_ChargeMatter</li></thingDefs></fuelFilter>
+        <fuelCapacity>20</fuelCapacity>
+        <fuelMultiplier>0.05</fuelMultiplier>
+        <initialFuelPercent>0</initialFuelPercent>
+        <showFuelGizmo>true</showFuelGizmo>
+        <minimumFueledThreshold>1</minimumFueledThreshold>
+        <consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
+        <initialAllowAutoRefuel>true</initialAllowAutoRefuel>
+        <autoRefuelPercent>0</autoRefuelPercent>
+        <fuelIconPath>Items/StableCharge</fuelIconPath>
+      </li>
+    </comps>
+    <constructionSkillPrerequisite>8</constructionSkillPrerequisite>
+    <costList>
+      <Steel>400</Steel>
+      <Plasteel>85</Plasteel>
+      <ReinforcedBarrel>2</ReinforcedBarrel>
+      <ComponentSpacer>4</ComponentSpacer>
+    </costList>
+    <designationHotKey>Misc4</designationHotKey>
+    <building>
+      <combatPower>10</combatPower>
+      <turretGunDef>MJArmory_Gun_ChargeMortar</turretGunDef>
+      <turretBurstWarmupTime>3.0</turretBurstWarmupTime>
+      <turretBurstCooldownTime>3.0</turretBurstCooldownTime>
+    </building>
+    <placeWorkers>
+      <li>PlaceWorker_NotUnderRoof</li>
+      <li>PlaceWorker_PreventInteractionSpotOverlap</li>
+    </placeWorkers>
+    <researchPrerequisites>
+      <li>ChargedShot></li>
+      <li>HeavyTurrets</li>
+      <li>Mortars</li>
+    </researchPrerequisites>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseBullet">
+    <defName>MJArmory_Shell_ChargeMortar</defName>
+    <label>megacannon charge</label>
+    <thingClass>Projectile_Explosive</thingClass>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Thump</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>TransparentPostLight</shaderType>
+      <drawSize>2.5</drawSize>
+      <!-- bleb <color>(254,189,58)</color> -->
+    </graphicData>
+    <projectile>
+      <damageDef>Mjeiouws_Superheat</damageDef>
+      <explosionRadius>2.9</explosionRadius>
+      <speed>80</speed>
+      <damageAmountBase>24</damageAmountBase>
+      <arcHeightFactor>0.7</arcHeightFactor>
+      <soundExplode>Explosion_EMP</soundExplode>
+      <extraDamages>
+        <li><def>EMP</def></li>
+      </extraDamages>
+    </projectile>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseWeaponTurret">
+    <defName>MJArmory_Gun_ChargeMortar</defName>
+    <label>charge megacannon</label>
+    <description>A charged-shot megacannon capable of projecting unstable energy over curving trajectories. Somewhat inaccurate but long-ranged.</description>
+    <recoilPower>5</recoilPower>
+    <graphicData>
+      <texPath>Building/Security/TurretChargeMortar_Top</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+      <AccuracyTouch>0.28</AccuracyTouch>
+      <AccuracyShort>0.72</AccuracyShort>
+      <AccuracyMedium>0.66</AccuracyMedium>
+      <AccuracyLong>0.5</AccuracyLong>
+      <RangedWeapon_Cooldown>3.0</RangedWeapon_Cooldown>
+      <DeteriorationRate>0</DeteriorationRate>
+      <Mass>40</Mass>
+      <Flammability>0</Flammability>
+    </statBases>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <defaultProjectile>MJArmory_Shell_ChargeMortar</defaultProjectile>
+        <forceNormalTimeSpeed>false</forceNormalTimeSpeed>
+        <warmupTime>3.0</warmupTime>
+        <forcedMissRadius>4.8</forcedMissRadius>
+        <requireLineOfSight>false</requireLineOfSight>
+        <minRange>29.9</minRange>
+        <range>500</range>
+        <ticksBetweenBurstShots>27</ticksBetweenBurstShots>
+        <burstShotCount>5</burstShotCount>
+        <soundCast>InfernoCannon_Fire</soundCast>
+        <soundCastTail>GunTail_Heavy</soundCastTail>
+        <muzzleFlashScale>16</muzzleFlashScale>
+        <consumeFuelPerShot>1</consumeFuelPerShot>
+        <targetParams>
+          <canTargetLocations>true</canTargetLocations>
+        </targetParams>
+      </li>
+    </verbs>
+  </ThingDef>
+
+
+
+
+
+<!-- ====== Charge Beamer ======= -->
+
+<ThingDef ParentName="MJArmory_MegaTurretBase">
+    <defName>MJArmory_Turret_ChargeBeamer</defName>
+    <label>charge beamer turret</label>
+    <description>A charge-pumped gamma-ray laser turret which fires a sweeping, armor-piercing beam. Typically mounted as a defensive armament on warships and satellites, it will lock onto and engage targets at incredibly long distances.</description>
+    <uiIconPath>Building/Security/TurretChargeBeamer_MenuIcon</uiIconPath>
+    <uiIconScale>1.10</uiIconScale>
+    <designationCategory>Security</designationCategory>
+    <statBases>
+      <ShootingAccuracyTurret>0.96</ShootingAccuracyTurret> <!-- like level 8 human shooter -->
+    </statBases>
+    <costList>
+      <Steel>400</Steel>
+      <Plasteel>45</Plasteel>
+      <Uranium>120</Uranium>
+      <ComponentSpacer>6</ComponentSpacer>
+    </costList>
+    <comps>
+      <li Class="CompProperties_Forbiddable"/>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>150</basePowerConsumption>
+      </li>
+      <li Class="CompProperties_Flickable"/>
+      <li Class="CompProperties_Breakdownable"/>
+      <li Class="CompProperties_Refuelable">
+        <fuelLabel>Shots until recharge</fuelLabel>
+        <fuelGizmoLabel>Charge cell</fuelGizmoLabel>
+        <outOfFuelMessage>Out of charge</outOfFuelMessage>
+        <fuelFilter><thingDefs><li>MJ_ChargeMatter</li></thingDefs></fuelFilter>
+        <fuelCapacity>20</fuelCapacity>       <!-- 20 shots -->
+        <fuelMultiplier>0.1</fuelMultiplier>  <!-- 10 charge per shot -->
+        <initialFuelPercent>0</initialFuelPercent>
+        <autoRefuelPercent>0.0</autoRefuelPercent>
+        <showFuelGizmo>true</showFuelGizmo>
+        <minimumFueledThreshold>1</minimumFueledThreshold>
+        <factorByDifficulty>true</factorByDifficulty>
+        <consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
+        <fuelIconPath>Items/StableCharge</fuelIconPath>
+      </li>
+    </comps>
+    <building>
+      <turretGunDef>MJArmory_Gun_ChargeBeamerTurret</turretGunDef>
+      <turretBurstCooldownTime>0.25</turretBurstCooldownTime>
+    </building>
+    <placeWorkers Inherit="False">
+      <li>PlaceWorker_TurretTop</li>
+    </placeWorkers>
+    <researchPrerequisites>
+      <li>ChargedShot</li>
+      <li>HeavyTurrets</li>
+    </researchPrerequisites>
+  </ThingDef>
+
+
+  <ThingDef ParentName="BaseWeaponTurret">
+    <defName>MJArmory_Gun_ChargeBeamerTurret</defName>
+    <label>charge graser</label>
+    <description>A charge-pumped gamma ray laser which fires a sweeping beam that pierces thick armor and burns targets. This one was made to be mounted on a turret.</description>
+    <graphicData>
+      <texPath>Building/Security/TurretChargeBeamer_Top</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+      <AccuracyTouch>0.60</AccuracyTouch>
+      <AccuracyShort>0.70</AccuracyShort>
+      <AccuracyMedium>0.65</AccuracyMedium>
+      <AccuracyLong>0.55</AccuracyLong>
+      <RangedWeapon_Cooldown>0.25</RangedWeapon_Cooldown>
+      <DeteriorationRate>0</DeteriorationRate>
+      <Mass>40</Mass>
+      <Flammability>0</Flammability>
+    </statBases>
+    <verbs>
+      <li>
+        <verbClass>Verb_ShootBeam</verbClass>
+        <warmupTime>0</warmupTime>
+        <minRange>14.9</minRange>
+        <range>125.9</range>
+        <ticksBetweenBurstShots>17</ticksBetweenBurstShots>
+        <beamFullWidthRange>20</beamFullWidthRange>
+        <burstShotCount>15</burstShotCount>
+        <showBurstShotStats>false</showBurstShotStats>
+        <requireLineOfSight>true</requireLineOfSight>
+        <beamWidth>6</beamWidth>
+        <ticksBetweenBurstShots>8</ticksBetweenBurstShots>
+        <beamDamageDef>Mjeiouws_Superheat</beamDamageDef>
+        <soundCastTail>GunTail_Heavy</soundCastTail>
+        <muzzleFlashScale>12</muzzleFlashScale>
+        <soundCastBeam>Explosion_Vaporize</soundCastBeam>
+        <beamGroundFleckDef>Fleck_Vaporize</beamGroundFleckDef>
+        <beamFleckChancePerTick>0.32</beamFleckChancePerTick>
+        <beamMaxDeviation>1.5</beamMaxDeviation>
+        <beamCurvature>0.7</beamCurvature>
+        <beamMoteDef>Mote_MJHellBeamBase</beamMoteDef>
+        <beamEndEffecterDef>MJHellBeam_End</beamEndEffecterDef>
+        <beamChanceToStartFire>0.85</beamChanceToStartFire>
+        <beamChanceToAttachFire>0.85</beamChanceToAttachFire>
+        <beamFireSizeRange>0.55~0.85</beamFireSizeRange>
+        <beamLineFleckDef>Fleck_BeamSpark</beamLineFleckDef>
+        <beamStartOffset>0.8</beamStartOffset>
+        <ai_BeamIsIncendiary>true</ai_BeamIsIncendiary>
+        <beamLineFleckChanceCurve>
+          <points>
+            <li>(0, 0)</li>
+            <li>(0.65, 0.4)</li>
+            <li>(1, 0.75)</li>
+          </points>
+        </beamLineFleckChanceCurve>
+        <targetParams>
+          <canTargetLocations>true</canTargetLocations>
+        </targetParams>
+        <consumeFuelPerShot>1</consumeFuelPerShot>
+      </li>
+    </verbs>
+  </ThingDef>
+
+
+</Defs>

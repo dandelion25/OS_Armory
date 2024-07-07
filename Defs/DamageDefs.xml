@@ -21,7 +21,7 @@
   </DamageDef>
 
   <DamageDef>
-    <defName>Mjeiouws_HellBeamDamage</defName>
+    <defName>Mjeiouws_Superheat</defName>
     <label>scorch</label>
     <workerClass>DamageWorker_AddInjury</workerClass>
     <externalViolence>true</externalViolence>

@@ -27,6 +27,9 @@
     <designationCategory>Security</designationCategory>
     <tickerType>Normal</tickerType>
     <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+    <thingCategories>
+      <li>BuildingsSecurity</li>
+    </thingCategories>
     <statBases>
       <MaxHitPoints>800</MaxHitPoints>
       <Flammability>0</Flammability>
@@ -35,7 +38,7 @@
       <Beauty>-20</Beauty>
     </statBases>
     <building>
-      <turretTopDrawSize>(4,4)</turretTopDrawSize>
+      <turretTopDrawSize>2.7</turretTopDrawSize>
       <turretTopOffset>(0, 0.05)</turretTopOffset>
     </building>
     <placeWorkers>
@@ -64,7 +67,8 @@
     <hasInteractionCell>True</hasInteractionCell>
     <interactionCellOffset>(0,0,-2)</interactionCellOffset>
     <uiIconPath>Building/Security/TurretChargeMortar_MenuIcon</uiIconPath>
-    <uiIconScale>0.9</uiIconScale>
+    <uiIconScale>1.0</uiIconScale>
+    <minifiedDef>MinifiedThing</minifiedDef>
     <comps>
       <li Class="CompProperties_Forbiddable"/>
       <li Class="CompProperties_Power">
@@ -114,7 +118,7 @@
       <li>PlaceWorker_PreventInteractionSpotOverlap</li>
     </placeWorkers>
     <researchPrerequisites>
-      <li>ChargedShot></li>
+      <li>ChargedShot</li>
       <li>HeavyTurrets</li>
       <li>Mortars</li>
     </researchPrerequisites>
@@ -197,7 +201,8 @@
     <label>charge beamer turret</label>
     <description>A charge-pumped gamma-ray laser turret which fires a sweeping, armor-piercing beam. Typically mounted as a defensive armament on warships and satellites, it will lock onto and engage targets at incredibly long distances.</description>
     <uiIconPath>Building/Security/TurretChargeBeamer_MenuIcon</uiIconPath>
-    <uiIconScale>1.10</uiIconScale>
+    <uiIconScale>1.0</uiIconScale>
+    <minifiedDef>MinifiedThing</minifiedDef>
     <designationCategory>Security</designationCategory>
     <statBases>
       <ShootingAccuracyTurret>0.96</ShootingAccuracyTurret> <!-- like level 8 human shooter -->
@@ -270,7 +275,6 @@
         <warmupTime>0</warmupTime>
         <minRange>14.9</minRange>
         <range>125.9</range>
-        <ticksBetweenBurstShots>17</ticksBetweenBurstShots>
         <beamFullWidthRange>20</beamFullWidthRange>
         <burstShotCount>15</burstShotCount>
         <showBurstShotStats>false</showBurstShotStats>

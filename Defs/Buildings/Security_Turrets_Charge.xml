@@ -59,7 +59,7 @@
         <fuelCapacity>12</fuelCapacity>       <!-- 12 shots -->
         <fuelMultiplier>1</fuelMultiplier> <!-- 1 stable charge per shot -->
         <initialFuelPercent>0</initialFuelPercent>
-        <autoRefuelPercent>0</autoRefuelPercent>
+        <autoRefuelPercent>1</autoRefuelPercent>
         <showFuelGizmo>true</showFuelGizmo>
         <minimumFueledThreshold>1</minimumFueledThreshold>
         <factorByDifficulty>true</factorByDifficulty>
@@ -176,7 +176,7 @@
         <fuelCapacity>20</fuelCapacity>       <!-- 20 shots -->
         <fuelMultiplier>0.1</fuelMultiplier> <!-- 10 stable charge per shot -->
         <initialFuelPercent>0</initialFuelPercent>
-        <autoRefuelPercent>0</autoRefuelPercent>
+        <autoRefuelPercent>1</autoRefuelPercent>
         <showFuelGizmo>true</showFuelGizmo>
         <minimumFueledThreshold>1</minimumFueledThreshold>
         <factorByDifficulty>true</factorByDifficulty>

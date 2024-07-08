@@ -38,8 +38,8 @@
       <Beauty>-20</Beauty>
     </statBases>
     <building>
-      <turretTopDrawSize>2.7</turretTopDrawSize>
-      <turretTopOffset>(0, 0.05)</turretTopOffset>
+      <turretTopDrawSize>5.5</turretTopDrawSize>
+      <turretTopOffset>(0, 0.2)</turretTopOffset>
     </building>
     <placeWorkers>
       <li>PlaceWorker_TurretTop</li>
@@ -95,7 +95,7 @@
         <minimumFueledThreshold>1</minimumFueledThreshold>
         <consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
         <initialAllowAutoRefuel>true</initialAllowAutoRefuel>
-        <autoRefuelPercent>0</autoRefuelPercent>
+        <autoRefuelPercent>1</autoRefuelPercent>
         <fuelIconPath>Items/StableCharge</fuelIconPath>
       </li>
     </comps>
@@ -229,7 +229,7 @@
         <fuelCapacity>20</fuelCapacity>       <!-- 20 shots -->
         <fuelMultiplier>0.1</fuelMultiplier>  <!-- 10 charge per shot -->
         <initialFuelPercent>0</initialFuelPercent>
-        <autoRefuelPercent>0.0</autoRefuelPercent>
+        <autoRefuelPercent>1</autoRefuelPercent>
         <showFuelGizmo>true</showFuelGizmo>
         <minimumFueledThreshold>1</minimumFueledThreshold>
         <factorByDifficulty>true</factorByDifficulty>

@@ -63,7 +63,6 @@
     <label>charge megacannon</label>
     <description>A charged-shot megacannon capable of projecting unstable energy over curving trajectories. While less versatile than a conventional mortar, its rapid fire and shield-breaking capability allow it to suppress even heavily armored targets over long distances.\n\nNote: this building must be connected to a charge network to function.</description>
     <rotatable>true</rotatable>
-    <!-- nop, not today, mr. megahauler deluxe. <minifiedDef>MinifiedThing</minifiedDef> -->
     <hasInteractionCell>True</hasInteractionCell>
     <interactionCellOffset>(0,0,-2)</interactionCellOffset>
     <uiIconPath>Building/Security/TurretChargeMortar_MenuIcon</uiIconPath>
@@ -77,8 +76,9 @@
       </li>
       <li Class="CompProperties_Flickable"/>
       <li Class="CompProperties_Breakdownable"/>
-      <li Class="PipeSystem.CompProperties_Resource">
+      <li Class="CompProperties_RefillWithPipes">
         <pipeNet>MJ_ChargeNet</pipeNet>
+        <thing>MJ_ChargeMatter</thing>
       </li>
       <li Class="CompProperties_Mannable">
         <manWorkType>Violent</manWorkType>
@@ -141,9 +141,13 @@
       <speed>80</speed>
       <damageAmountBase>24</damageAmountBase>
       <arcHeightFactor>0.7</arcHeightFactor>
+      <flyOverhead>true</flyOverhead>
+      <soundHitThickRoof>Artillery_HitThickRoof</soundHitThickRoof>
       <soundExplode>Explosion_EMP</soundExplode>
+      <soundImpactAnticipate>MortarRound_PreImpact</soundImpactAnticipate>
+      <soundAmbient>MortarRound_Ambient</soundAmbient>
       <extraDamages>
-        <li><def>EMP</def></li>
+        <li><def>EMP</def><amount>50</amount></li>
       </extraDamages>
     </projectile>
   </ThingDef>
@@ -152,7 +156,7 @@
     <defName>MJArmory_Gun_ChargeMortar</defName>
     <label>charge megacannon</label>
     <description>A charged-shot megacannon capable of projecting unstable energy over curving trajectories. Somewhat inaccurate but long-ranged.</description>
-    <recoilPower>5</recoilPower>
+    <recoilPower>10</recoilPower>
     <graphicData>
       <texPath>Building/Security/TurretChargeMortar_Top</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -198,8 +202,8 @@
 
 <ThingDef ParentName="MJArmory_MegaTurretBase">
     <defName>MJArmory_Turret_ChargeBeamer</defName>
-    <label>charge beamer turret</label>
-    <description>A charge-pumped gamma-ray laser turret which fires a sweeping, armor-piercing beam. Typically mounted as a defensive armament on warships and satellites, it will lock onto and engage targets at incredibly long distances.</description>
+    <label>charge beam turret</label>
+    <description>A charge-pumped x-ray laser turret which fires a sweeping, armor-piercing beam. Typically mounted on warships and satellites, it will lock onto and engage targets at incredibly long distances.</description>
     <uiIconPath>Building/Security/TurretChargeBeamer_MenuIcon</uiIconPath>
     <uiIconScale>1.0</uiIconScale>
     <minifiedDef>MinifiedThing</minifiedDef>
@@ -221,6 +225,10 @@
       </li>
       <li Class="CompProperties_Flickable"/>
       <li Class="CompProperties_Breakdownable"/>
+      <li Class="CompProperties_RefillWithPipes">
+        <pipeNet>MJ_ChargeNet</pipeNet>
+        <thing>MJ_ChargeMatter</thing>
+      </li>
       <li Class="CompProperties_Refuelable">
         <fuelLabel>Shots until recharge</fuelLabel>
         <fuelGizmoLabel>Charge cell</fuelGizmoLabel>
@@ -238,12 +246,11 @@
       </li>
     </comps>
     <building>
+      <combatPower>380</combatPower>
+      <ai_combatDangerous>true</ai_combatDangerous>
       <turretGunDef>MJArmory_Gun_ChargeBeamerTurret</turretGunDef>
       <turretBurstCooldownTime>0.25</turretBurstCooldownTime>
     </building>
-    <placeWorkers Inherit="False">
-      <li>PlaceWorker_TurretTop</li>
-    </placeWorkers>
     <researchPrerequisites>
       <li>ChargedShot</li>
       <li>HeavyTurrets</li>
@@ -254,7 +261,7 @@
   <ThingDef ParentName="BaseWeaponTurret">
     <defName>MJArmory_Gun_ChargeBeamerTurret</defName>
     <label>charge graser</label>
-    <description>A charge-pumped gamma ray laser which fires a sweeping beam that pierces thick armor and burns targets. This one was made to be mounted on a turret.</description>
+    <description>A charge-pumped x-ray laser which fires a sweeping beam that pierces thick armor and burns targets. This one was made to be mounted on a turret.</description>
     <graphicData>
       <texPath>Building/Security/TurretChargeBeamer_Top</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -272,15 +279,15 @@
     <verbs>
       <li>
         <verbClass>Verb_ShootBeam</verbClass>
-        <warmupTime>0</warmupTime>
-        <minRange>14.9</minRange>
-        <range>125.9</range>
+        <warmupTime>0.0</warmupTime>
+        <minRange>10.9</minRange>
+        <range>500</range>
         <beamFullWidthRange>20</beamFullWidthRange>
-        <burstShotCount>15</burstShotCount>
+        <burstShotCount>12</burstShotCount>
         <showBurstShotStats>false</showBurstShotStats>
         <requireLineOfSight>true</requireLineOfSight>
         <beamWidth>6</beamWidth>
-        <ticksBetweenBurstShots>8</ticksBetweenBurstShots>
+        <ticksBetweenBurstShots>6</ticksBetweenBurstShots>
         <beamDamageDef>Mjeiouws_Superheat</beamDamageDef>
         <soundCastTail>GunTail_Heavy</soundCastTail>
         <muzzleFlashScale>12</muzzleFlashScale>
@@ -296,7 +303,8 @@
         <beamFireSizeRange>0.55~0.85</beamFireSizeRange>
         <beamLineFleckDef>Fleck_BeamSpark</beamLineFleckDef>
         <beamStartOffset>0.8</beamStartOffset>
-        <ai_BeamIsIncendiary>true</ai_BeamIsIncendiary>
+        <beamHitsNeighborCells>true</beamHitsNeighborCells>
+        <!-- <ai_BeamIsIncendiary>true</ai_BeamIsIncendiary> -->
         <beamLineFleckChanceCurve>
           <points>
             <li>(0, 0)</li>
@@ -307,7 +315,7 @@
         <targetParams>
           <canTargetLocations>true</canTargetLocations>
         </targetParams>
-        <consumeFuelPerShot>1</consumeFuelPerShot>
+        <consumeFuelPerBurst>1</consumeFuelPerBurst>
       </li>
     </verbs>
   </ThingDef>

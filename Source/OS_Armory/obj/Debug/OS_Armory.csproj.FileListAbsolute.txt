@@ -1,0 +1,7 @@
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\OS_Armory\Assemblies\OS_Armory.dll
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\OS_Armory\Source\OS_Armory\obj\Debug\OS_Armory.csproj.AssemblyReference.cache
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\OS_Armory\Source\OS_Armory\obj\Debug\OS_Armory.GeneratedMSBuildEditorConfig.editorconfig
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\OS_Armory\Source\OS_Armory\obj\Debug\OS_Armory.AssemblyInfoInputs.cache
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\OS_Armory\Source\OS_Armory\obj\Debug\OS_Armory.AssemblyInfo.cs
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\OS_Armory\Source\OS_Armory\obj\Debug\OS_Armory.csproj.CoreCompileInputs.cache
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\OS_Armory\Source\OS_Armory\obj\Debug\OS_Armory.dll

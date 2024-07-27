@@ -37,6 +37,7 @@
 
   <PipeSystem.PipeNetDef>
     <defName>MJ_ChargeNet</defName>
+    <transferAmount>100</transferAmount>
     <resource>
       <name>MJ_ChargeMatter</name>
       <unit>l</unit>
@@ -54,6 +55,14 @@
     <overlayOptions>
       <overlayColor>(0.6, 0.76, 0.85)</overlayColor>
     </overlayOptions>
+    <linkToRefuelables>
+      <li>
+        <!-- Connect to all chargematter (refuelablecomp only) building -->
+        <thing>MJ_ChargeMatter</thing>
+        <!-- 1 in pipenet: 1 when refueling -->
+        <ratio>1</ratio>
+      </li>
+    </linkToRefuelables>
   </PipeSystem.PipeNetDef>
 
   <ThingDef ParentName="BuildingBase">
@@ -161,15 +170,14 @@
       <li Class="PipeSystem.CompProperties_ResourceStorage">
         <pipeNet>MJ_ChargeNet</pipeNet>
         <storageCapacity>120</storageCapacity>
-        <barSize>(1.3, 0.25)</barSize>
-        <margin>0.1</margin>
+        <drawStorageBar>False</drawStorageBar>
         <centerOffset>(0, 0, 0.45)</centerOffset>
       </li>
       <li Class="PipeSystem.CompProperties_ExplosiveContent">
         <explosiveMaxRadius>14</explosiveMaxRadius>
         <!-- Vanilla options below -->
         <explosiveDamageType>EMP</explosiveDamageType>
-        <destroyThingOnExplosionSize>2</destroyThingOnExplosionSize>
+        <destroyThingOnExplosionSize>12</destroyThingOnExplosionSize>
         <startWickHitPointsPercent>0.333</startWickHitPointsPercent>
         <wickTicks>70~150</wickTicks>
       </li>
@@ -243,7 +251,7 @@
       <li Class="PipeSystem.CompProperties_ResourceTrader">
         <pipeNet>MJ_ChargeNet</pipeNet>
         <!-- Amount used per net tick (100 game ticks), it it's negative, it's producing -->
-        <consumptionPerTick>-1</consumptionPerTick>
+        <consumptionPerTick>-0.2</consumptionPerTick>
       </li>
       <li Class="CompProperties_Glower">
         <glowRadius>3</glowRadius>

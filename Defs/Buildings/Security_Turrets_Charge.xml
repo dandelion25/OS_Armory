@@ -48,8 +48,9 @@
       </li>
       <li Class="CompProperties_Flickable"/>
       <li Class="CompProperties_Breakdownable"/>
-      <li Class="PipeSystem.CompProperties_Resource">
+      <li Class="CompProperties_RefillWithPipes">
         <pipeNet>MJ_ChargeNet</pipeNet>
+        <thing>MJ_ChargeMatter</thing>
       </li>
       <li Class="CompProperties_Refuelable">
         <fuelLabel>Shots until recharge</fuelLabel>
@@ -62,7 +63,7 @@
         <autoRefuelPercent>1</autoRefuelPercent>
         <showFuelGizmo>true</showFuelGizmo>
         <minimumFueledThreshold>1</minimumFueledThreshold>
-        <factorByDifficulty>true</factorByDifficulty>
+        <!-- bleh <factorByDifficulty>true</factorByDifficulty> -->
         <consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
         <fuelIconPath>Items/StableCharge</fuelIconPath>
       </li>
@@ -106,7 +107,7 @@
 
   <ThingDef ParentName="BaseWeaponTurret">
     <defName>MJArmory_Gun_ChargeMiniTurret</defName>
-    <label>mini-turret charge assembly</label>
+    <label>mini-turret charger</label>
     <description>A lightweight charged-shot assembly made to be mounted on a turret.</description>
     <graphicData>
       <texPath>Building/Security/TurretChargeMini_Top</texPath>
@@ -146,7 +147,7 @@
   <ThingDef ParentName="AutocannonTurret">
     <defName>MJArmory_Turret_ChargeHeavy</defName>
     <label>heavy charge turret</label>
-    <description>A heavy charged-shot turret. While unable to handle the erosion induced by rapid fire, advanced alloys and fast-cooling systems allow it to deliver a continuous barrage of damaging unstable energy. It cannot fire at close-up targets.\n\nNote: this building must be connected to a charge network to function.</description>
+    <description>A heavy charged-shot turret. Advanced alloys and fast-cooling systems allow it to deliver a continuous barrage of damaging unstable energy. It cannot fire at close-up targets.\n\nNote: this building must be connected to a charge network to function.</description>
     <uiIconPath>Building/Security/TurretChargeHeavy_MenuIcon</uiIconPath>
     <uiIconScale>1.10</uiIconScale>
     <statBases>
@@ -165,8 +166,9 @@
       </li>
       <li Class="CompProperties_Flickable"/>
       <li Class="CompProperties_Breakdownable"/>
-      <li Class="PipeSystem.CompProperties_Resource">
+      <li Class="CompProperties_RefillWithPipes">
         <pipeNet>MJ_ChargeNet</pipeNet>
+        <thing>MJ_ChargeMatter</thing>
       </li>
       <li Class="CompProperties_Refuelable">
         <fuelLabel>Shots until recharge</fuelLabel>
@@ -209,7 +211,7 @@
     <projectile>
       <damageDef>Mjeiouws_Superheat</damageDef>
       <damageAmountBase>18</damageAmountBase>
-      <speed>100</speed>
+      <speed>90</speed>
       <explosionRadius>1.9</explosionRadius >
       <soundExplode>Explosion_EMP</soundExplode>
       <extraDamages>
@@ -220,7 +222,7 @@
 
   <ThingDef ParentName="BaseWeaponTurret">
     <defName>MJArmory_Gun_HeavyChargeTurret</defName>
-    <label>heavy charge assembly</label>
+    <label>heavy charge cannon</label>
     <description>A heavy charged-shot assembly designed to attach to a turret.</description>
     <graphicData>
       <texPath>Building/Security/TurretChargeHeavy_Top</texPath>
@@ -243,7 +245,7 @@
         <warmupTime>0.5</warmupTime>
         <forcedMissRadius>1.4</forcedMissRadius>
         <minRange>5.9</minRange>
-        <range>28.9</range>
+        <range>34.9</range>
         <ticksBetweenBurstShots>35</ticksBetweenBurstShots>
         <burstShotCount>3</burstShotCount>
         <soundCast>ThumpCannon_Fire</soundCast>

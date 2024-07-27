@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "wCYpqgQkBLV1Lcszga1ZDQlJNDla8rbXoa3LNx+UAe9aRMHFuhhzMrXDg8beJaGG4rlvrWgRnU/eC7tPDoKblg==",
+  "success": true,
+  "projectFilePath": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\OS_Armory\\Source\\OS_Armory\\OS_Armory.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\admin\\.nuget\\packages\\lib.harmony\\2.3.3\\lib.harmony.2.3.3.nupkg.sha512"
+  ],
+  "logs": []
+}

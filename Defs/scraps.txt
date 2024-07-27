@@ -1,3 +1,6 @@
+note: https://github.com/Vanilla-Expanded/VanillaExpandedFramework/wiki/CompProperties_RefillWithPipes
+(just in case i forget again this exists)
+
 
   <AbilityDef>
     <defName>MJArmory_Hellbore_Ability</defName>

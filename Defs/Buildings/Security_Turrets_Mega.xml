@@ -21,8 +21,8 @@
     <stealable>false</stealable>
     <rotatable>false</rotatable>
     <size>(3,3)</size>
-    <passability>Impassable</passability>
-    <fillPercent>1</fillPercent>
+    <passability>PassThroughOnly</passability>
+    <fillPercent>0.4</fillPercent>
     <!-- <thingCategories><li>BuildingsSecurity</li></thingCategories> -->
     <designationCategory>Security</designationCategory>
     <tickerType>Normal</tickerType>
@@ -39,7 +39,7 @@
     </statBases>
     <building>
       <turretTopDrawSize>5.5</turretTopDrawSize>
-      <turretTopOffset>(0, 0.2)</turretTopOffset>
+      <turretTopOffset>(0, 0.4)</turretTopOffset>
     </building>
     <placeWorkers>
       <li>PlaceWorker_TurretTop</li>
@@ -202,14 +202,14 @@
 
 <ThingDef ParentName="MJArmory_MegaTurretBase">
     <defName>MJArmory_Turret_ChargeBeamer</defName>
-    <label>charge beam turret</label>
-    <description>A charge-pumped x-ray laser turret which fires a sweeping, armor-piercing beam. Typically mounted on warships and satellites, it will lock onto and engage targets at incredibly long distances.</description>
+    <label>charge destroyer</label>
+    <description>A charge-pumped x-ray laser turret producing a focused, armor-piercing beam. Often incorporated into satellite defence systems, it will lock onto and destroy targets at incredibly long distances.</description>
     <uiIconPath>Building/Security/TurretChargeBeamer_MenuIcon</uiIconPath>
     <uiIconScale>1.0</uiIconScale>
     <minifiedDef>MinifiedThing</minifiedDef>
     <designationCategory>Security</designationCategory>
     <statBases>
-      <ShootingAccuracyTurret>0.96</ShootingAccuracyTurret> <!-- like level 8 human shooter -->
+      <ShootingAccuracyTurret>0.997</ShootingAccuracyTurret> <!-- almost perfect -->
     </statBases>
     <costList>
       <Steel>400</Steel>
@@ -234,8 +234,8 @@
         <fuelGizmoLabel>Charge cell</fuelGizmoLabel>
         <outOfFuelMessage>Out of charge</outOfFuelMessage>
         <fuelFilter><thingDefs><li>MJ_ChargeMatter</li></thingDefs></fuelFilter>
-        <fuelCapacity>20</fuelCapacity>       <!-- 20 shots -->
-        <fuelMultiplier>0.1</fuelMultiplier>  <!-- 10 charge per shot -->
+        <fuelCapacity>100</fuelCapacity>       <!-- 100 shots -->
+        <fuelMultiplier>10</fuelMultiplier>  <!-- 0.1 charge per shot -->
         <initialFuelPercent>0</initialFuelPercent>
         <autoRefuelPercent>1</autoRefuelPercent>
         <showFuelGizmo>true</showFuelGizmo>
@@ -260,17 +260,17 @@
 
   <ThingDef ParentName="BaseWeaponTurret">
     <defName>MJArmory_Gun_ChargeBeamerTurret</defName>
-    <label>charge graser</label>
-    <description>A charge-pumped x-ray laser which fires a sweeping beam that pierces thick armor and burns targets. This one was made to be mounted on a turret.</description>
+    <label>charge destroyer assembly</label>
+    <description>A charge-pumped x-ray laser producing a focused, armor-piercing beam. This assembly is made to be mounted on a turret.</description>
     <graphicData>
       <texPath>Building/Security/TurretChargeBeamer_Top</texPath>
       <graphicClass>Graphic_Single</graphicClass>
     </graphicData>
     <statBases>
-      <AccuracyTouch>0.60</AccuracyTouch>
-      <AccuracyShort>0.70</AccuracyShort>
-      <AccuracyMedium>0.65</AccuracyMedium>
-      <AccuracyLong>0.55</AccuracyLong>
+      <AccuracyTouch>0.30</AccuracyTouch>
+      <AccuracyShort>0.30</AccuracyShort>
+      <AccuracyMedium>0.55</AccuracyMedium>
+      <AccuracyLong>1.00</AccuracyLong>
       <RangedWeapon_Cooldown>0.25</RangedWeapon_Cooldown>
       <DeteriorationRate>0</DeteriorationRate>
       <Mass>40</Mass>
@@ -278,47 +278,39 @@
     </statBases>
     <verbs>
       <li>
-        <verbClass>Verb_ShootBeam</verbClass>
-        <warmupTime>0.0</warmupTime>
+        <verbClass>Verb_Shoot</verbClass>
+        <defaultProjectile>MJArmory_Beampulse_CBeamer</defaultProjectile>
+        <forceNormalTimeSpeed>false</forceNormalTimeSpeed>
+        <warmupTime>0.5</warmupTime>
+        <!-- requireLineOfSight>true</requireLineOfSight -->
         <minRange>10.9</minRange>
         <range>500</range>
-        <beamFullWidthRange>20</beamFullWidthRange>
-        <burstShotCount>12</burstShotCount>
-        <showBurstShotStats>false</showBurstShotStats>
-        <requireLineOfSight>true</requireLineOfSight>
-        <beamWidth>6</beamWidth>
-        <ticksBetweenBurstShots>6</ticksBetweenBurstShots>
-        <beamDamageDef>Mjeiouws_Superheat</beamDamageDef>
+        <ticksBetweenBurstShots>1</ticksBetweenBurstShots>
+        <burstShotCount>100</burstShotCount>
+        <soundCast>Mjeiouws_Lasflash_ChaoticPuny</soundCast>
         <soundCastTail>GunTail_Heavy</soundCastTail>
-        <muzzleFlashScale>12</muzzleFlashScale>
-        <soundCastBeam>Explosion_Vaporize</soundCastBeam>
-        <beamGroundFleckDef>Fleck_Vaporize</beamGroundFleckDef>
-        <beamFleckChancePerTick>0.32</beamFleckChancePerTick>
-        <beamMaxDeviation>1.5</beamMaxDeviation>
-        <beamCurvature>0.7</beamCurvature>
-        <beamMoteDef>Mote_MJHellBeamBase</beamMoteDef>
-        <beamEndEffecterDef>MJHellBeam_End</beamEndEffecterDef>
-        <beamChanceToStartFire>0.85</beamChanceToStartFire>
-        <beamChanceToAttachFire>0.85</beamChanceToAttachFire>
-        <beamFireSizeRange>0.55~0.85</beamFireSizeRange>
-        <beamLineFleckDef>Fleck_BeamSpark</beamLineFleckDef>
-        <beamStartOffset>0.8</beamStartOffset>
-        <beamHitsNeighborCells>true</beamHitsNeighborCells>
-        <!-- <ai_BeamIsIncendiary>true</ai_BeamIsIncendiary> -->
-        <beamLineFleckChanceCurve>
-          <points>
-            <li>(0, 0)</li>
-            <li>(0.65, 0.4)</li>
-            <li>(1, 0.75)</li>
-          </points>
-        </beamLineFleckChanceCurve>
-        <targetParams>
-          <canTargetLocations>true</canTargetLocations>
-        </targetParams>
-        <consumeFuelPerBurst>1</consumeFuelPerBurst>
+        <muzzleFlashScale>5</muzzleFlashScale>
+        <consumeFuelPerShot>1</consumeFuelPerShot>
       </li>
     </verbs>
   </ThingDef>
+
+  <ThingDef ParentName="MJLG_Bullet_LaserGeneric" Class="VanillaWeaponsExpandedLaser.LaserBeamDef">
+    <defName>MJArmory_Beampulse_CBeamer</defName>
+    <label>ion stream</label>
+    <description>A deadly trail of ionized particles produced by an exciting beam.</description>
+    <textures><li>Projectiles/MJ_Beampulse_Ephemeral</li></textures>
+    <seam>0.1</seam>
+    <causefireChance>0.10</causefireChance>
+    <beamWidth>0.5</beamWidth>
+    <lifetime>8</lifetime>
+    <projectile><damageDef>Mjeiouws_Superheat</damageDef>
+		<damageAmountBase>6</damageAmountBase>
+		<stoppingPower>0.1</stoppingPower>
+    </projectile>
+  </ThingDef>
+
+
 
 
 </Defs>

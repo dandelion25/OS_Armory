@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- null fire : a placeholder projectile for use in shenanigans. -->
+
+<Defs>
+  <ThingDef ParentName="BaseBullet">
+    <defName>MJArmory_Bullet_Blank</defName>
+    <label>null fire</label>
+    <graphicData>
+      <texPath>Projectiles/MJ_blank</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <damageDef>Extinguish</damageDef>
+      <explosionRadius>0</explosionRadius>
+      <speed>5000</speed>
+      <damageAmountBase>0</damageAmountBase>
+    </projectile>
+  </ThingDef>
+</Defs>

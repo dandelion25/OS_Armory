@@ -1,5 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
+
+  <SoundDef>
+    <defName>Mjeiouws_Lasflash_ChaoticPuny</defName>  
+    <context>MapOnly</context>
+    <maxSimultaneous>1</maxSimultaneous>  
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Lasflash/Lasflash_Puny</clipPath>
+          </li>
+        </grains>      
+        <pitchRange>0.43~2.15</pitchRange>
+        <volumeRange>10~35</volumeRange>  
+      </li>
+    </subSounds>
+  </SoundDef>
+
   <SoundDef>
     <defName>Mjeiouws_Lasflash_Puny</defName>  
     <context>MapOnly</context>

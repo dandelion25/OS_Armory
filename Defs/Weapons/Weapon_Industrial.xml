@@ -410,11 +410,11 @@
       <li>WeaponRanged</li>
     </tradeTags>
     <equippedStatOffsets>
-      <MoveSpeed>-2.40</MoveSpeed>
+      <MoveSpeed>-1.80</MoveSpeed>
     </equippedStatOffsets>
     <statBases>
       <WorkToMake>80000</WorkToMake>
-      <Mass>42</Mass>
+      <Mass>25</Mass>
       <AccuracyTouch>0.85</AccuracyTouch>
       <AccuracyShort>0.25</AccuracyShort>
       <AccuracyMedium>0.40</AccuracyMedium>

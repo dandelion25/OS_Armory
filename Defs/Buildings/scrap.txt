@@ -36,3 +36,19 @@
         </beamLineFleckChanceCurve>
         <!-- consumeFuelPerBurst>1</consumeFuelPerBurst -->
       </li>
+
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <defaultProjectile>MJArmory_Beampulse_CBeamer</defaultProjectile>
+        <forceNormalTimeSpeed>false</forceNormalTimeSpeed>
+        <warmupTime>0.5</warmupTime>
+        <!-- requireLineOfSight>true</requireLineOfSight -->
+        <minRange>10.9</minRange>
+        <range>500</range>
+        <ticksBetweenBurstShots>1</ticksBetweenBurstShots>
+        <burstShotCount>100</burstShotCount>
+        <soundCast>Mjeiouws_Lasflash_ChaoticPuny</soundCast>
+        <soundCastTail>GunTail_Heavy</soundCastTail>
+        <muzzleFlashScale>5</muzzleFlashScale>
+        <consumeFuelPerShot>1</consumeFuelPerShot>
+      </li>

@@ -8,9 +8,10 @@
       <graphicClass>Graphic_Multi</graphicClass>
       <texPath>Building/Security/TurretSuperHeavy_Base</texPath>
       <drawSize>(3,3)</drawSize>
+      <drawOffset>(0,0,-0.1)</drawOffset>
       <damageData>
         <rect>(0.2,0.2,0.6,0.6)</rect>
-        <cornerTL>Damage/Corner</cornerTL>
+        <!-- cornerTL>Damage/Corner</cornerTL -->
       </damageData>
       <shadowData>
         <volume>(2,0.35,1.4)</volume>
@@ -39,7 +40,7 @@
     </statBases>
     <building>
       <turretTopDrawSize>5.5</turretTopDrawSize>
-      <turretTopOffset>(0, 0.4)</turretTopOffset>
+      <turretTopOffset>(0, 0.05)</turretTopOffset>
     </building>
     <placeWorkers>
       <li>PlaceWorker_TurretTop</li>

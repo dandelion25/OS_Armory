@@ -293,43 +293,6 @@
         <muzzleFlashScale>5</muzzleFlashScale>
         <consumeFuelPerShot>1</consumeFuelPerShot>
       </li>
-      <li>
-        <verbClass>Verb_ShootBeam</verbClass>
-        <warmupTime>0.0</warmupTime>
-        <minRange>10.9</minRange>
-        <range>500</range>
-        <beamFullWidthRange>20</beamFullWidthRange>
-        <burstShotCount>12</burstShotCount>
-        <showBurstShotStats>false</showBurstShotStats>
-        <requireLineOfSight>true</requireLineOfSight>
-        <beamWidth>3</beamWidth>
-        <ticksBetweenBurstShots>2</ticksBetweenBurstShots>
-        <beamDamageDef>Mjeiouws_Superheat</beamDamageDef>
-        <soundCastTail>GunTail_Heavy</soundCastTail>
-        <muzzleFlashScale>12</muzzleFlashScale>
-        <soundCastBeam>Explosion_Vaporize</soundCastBeam>
-        <beamGroundFleckDef>Fleck_Vaporize</beamGroundFleckDef>
-        <beamFleckChancePerTick>0.32</beamFleckChancePerTick>
-        <beamMaxDeviation>1.5</beamMaxDeviation>
-        <beamCurvature>1.7</beamCurvature>
-        <beamMoteDef>Mote_MJHellBeamBase</beamMoteDef>
-        <beamEndEffecterDef>MJHellBeam_End</beamEndEffecterDef>
-        <beamChanceToStartFire>0.85</beamChanceToStartFire>
-        <beamChanceToAttachFire>0.85</beamChanceToAttachFire>
-        <beamFireSizeRange>0.55~0.85</beamFireSizeRange>
-        <beamLineFleckDef>Fleck_BeamSpark</beamLineFleckDef>
-        <beamStartOffset>0.3</beamStartOffset>
-        <beamHitsNeighborCells>true</beamHitsNeighborCells>
-        <!-- <ai_BeamIsIncendiary>true</ai_BeamIsIncendiary> -->
-        <beamLineFleckChanceCurve>
-          <points>
-            <li>(0, 0)</li>
-            <li>(0.65, 0.4)</li>
-            <li>(1, 0.75)</li>
-          </points>
-        </beamLineFleckChanceCurve>
-        <consumeFuelPerBurst>10</consumeFuelPerBurst>
-      </li>
     </verbs>
   </ThingDef>
 

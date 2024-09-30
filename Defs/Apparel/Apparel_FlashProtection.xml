@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef ParentName="ArmorHelmetMakeableBase">
+    <defName>MJArmory_Apparel_FlashHelmet</defName>
+    <label>refractory helmet</label>
+    <description>An enclosed refractory helmet with inbuilt ventilation and climate control. Heat and radiation are guided away by high-tech composites, the layers of which serve to attenuate blunt and penetrating impacts.</description>
+    <techLevel>Industrial</techLevel>
+    <graphicData>
+      <texPath>Apparel/FlashHelmet/FlashHelmet</texPath>
+      <shaderType>CutoutComplex</shaderType>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <uiIconScale>1.4</uiIconScale>
+    <recipeMaker>
+      <researchPrerequisite>Fabrication</researchPrerequisite>
+      <skillRequirements>
+        <Crafting>6</Crafting>
+      </skillRequirements>
+      <recipeUsers Inherit="False">
+        <li>FabricationBench</li>
+      </recipeUsers>
+      <displayPriority>110</displayPriority>
+    </recipeMaker>
+    <stuffCategories>
+      <li>Metallic</li>
+    </stuffCategories>
+    <costStuffCount>30</costStuffCount>
+    <costList>
+      <ComponentIndustrial>4</ComponentIndustrial>
+      <Uranium>10</Uranium>
+      <Silver>12</Silver>
+    </costList>
+    <statBases>
+      <WorkToMake>12000</WorkToMake>
+      <MaxHitPoints>160</MaxHitPoints>
+      <Mass>2.3</Mass>
+      <Flammability>0.1</Flammability>
+      <StuffEffectMultiplierArmor>0.7</StuffEffectMultiplierArmor>
+      <Insulation_Cold>35</Insulation_Cold>
+      <Insulation_Heat>80</Insulation_Heat>
+      <EquipDelay>4</EquipDelay>
+    </statBases>
+    <equippedStatOffsets>
+      <EMPResistance MayRequireAnyOf="Ludeon.RimWorld.Biotech,Ludeon.RimWorld.Anomaly">0.2</EMPResistance>
+      <ArmorRating_Heat>0.3</ArmorRating_Heat>
+      <Flammability>-0.3</Flammability>
+    </equippedStatOffsets>
+    <tradeTags>
+      <li>Armor</li>
+    </tradeTags>
+    <apparel>
+      <countsAsClothingForNudity>false</countsAsClothingForNudity>
+      <bodyPartGroups>
+        <li>FullHead</li>
+      </bodyPartGroups>
+      <wornGraphicPath>Apparel/FlashHelmet/FlashHelmet</wornGraphicPath>
+      <useWornGraphicMask>true</useWornGraphicMask>
+      <layers>
+        <li>Overhead</li>
+      </layers>
+      <defaultOutfitTags>
+        <li>Soldier</li>
+      </defaultOutfitTags>
+    </apparel>
+    <colorGenerator Class="ColorGenerator_Options">
+      <options>
+        <li>
+          <weight>10</weight>
+          <only>(0.9,0.9,0.9,1)</only>
+        </li>
+        <li>
+          <weight>10</weight>
+          <only>(0.33,0.33,0.33,1)</only>
+        </li>
+        <li>
+          <weight>10</weight>
+          <only>(0.65,0.65,0.65,1)</only>
+        </li>
+        <li>
+          <weight>6</weight>
+          <min>(0.3,0.3,0.3,1)</min>
+          <max>(0.5,0.5,0.5,1)</max>
+        </li>
+      </options>
+    </colorGenerator>
+  </ThingDef>
+
+  <ThingDef ParentName="ArmorMachineableBase">
+    <defName>MJArmory_Apparel_RefractoryMantle</defName>
+    <label>refractory mantle</label>
+    <description>A heavy refractory mantle with inbuilt ventilation and climate control. Heat and radiation are guided away by high-tech composites, layers of which serve to attenuate blunt and penetrating impacts.\n\nA specialized clip for up to five compressed firefoam capsules is woven into the mantle. When removed, the capsules become shock-sensitive and detonate on impact.</description>
+    <techLevel>Industrial</techLevel>
+    <graphicData>
+      <texPath>Apparel/FlashCoat/FlashCoat</texPath>
+      <shaderType>CutoutComplex</shaderType>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <uiIconScale>1.1</uiIconScale>
+    <recipeMaker>
+      <researchPrerequisite>Fabrication</researchPrerequisite>
+      <skillRequirements>
+        <Crafting>8</Crafting>
+      </skillRequirements>
+      <recipeUsers Inherit="False">
+        <li>FabricationBench</li>
+      </recipeUsers>
+      <displayPriority>110</displayPriority>
+    </recipeMaker>
+    <stuffCategories>
+      <li>Metallic</li>
+    </stuffCategories>
+    <costStuffCount>80</costStuffCount>
+    <costList>
+      <ComponentIndustrial>5</ComponentIndustrial>
+      <Cloth>40</Cloth>
+      <Uranium>25</Uranium>
+      <Silver>22</Silver>
+    </costList>
+    <statBases>
+      <WorkToMake>42000</WorkToMake>
+      <MaxHitPoints>350</MaxHitPoints>
+      <Mass>14.5</Mass>
+      <Flammability>0.1</Flammability>
+      <StuffEffectMultiplierArmor>0.7</StuffEffectMultiplierArmor>
+      <Insulation_Cold>24</Insulation_Cold>
+      <Insulation_Heat>110</Insulation_Heat>
+      <EquipDelay>12</EquipDelay>
+    </statBases>
+    <equippedStatOffsets>
+      <MoveSpeed>-0.55</MoveSpeed>
+      <EMPResistance MayRequireAnyOf="Ludeon.RimWorld.Biotech,Ludeon.RimWorld.Anomaly">0.4</EMPResistance>
+      <ArmorRating_Heat>0.7</ArmorRating_Heat>
+      <Flammability>-0.7</Flammability>
+    </equippedStatOffsets>
+    <tradeTags>
+      <li>Armor</li>
+    </tradeTags>
+    <apparel>
+      <bodyPartGroups>
+        <li>Torso</li>
+        <li>Neck</li>
+        <li>Shoulders</li>
+        <li>Arms</li>
+        <li>Legs</li>
+      </bodyPartGroups>
+      <wornGraphicPath>Apparel/FlashCoat/FlashCoat</wornGraphicPath>
+      <useWornGraphicMask>true</useWornGraphicMask>
+      <layers>
+        <li>Middle</li>
+        <li>Shell</li>
+      </layers>
+      <defaultOutfitTags>
+        <li>Soldier</li>
+      </defaultOutfitTags>
+    </apparel>
+    <comps>
+      <li Class="CompProperties_ApparelReloadable">
+        <maxCharges>5</maxCharges>
+        <ammoDef>Chemfuel</ammoDef>
+        <ammoCountPerCharge>10</ammoCountPerCharge>
+        <baseReloadTicks>60</baseReloadTicks>
+        <soundReload>Standard_Reload</soundReload>
+        <hotKey>Misc4</hotKey>
+        <chargeNoun>firefoam capsule</chargeNoun>
+        <displayGizmoWhileUndrafted>false</displayGizmoWhileUndrafted>
+      </li>
+    </comps>
+    <verbs>
+      <li>
+        <label>throw firefoam</label>
+        <verbClass>Verb_LaunchProjectileStatic</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <onlyManualCast>True</onlyManualCast>
+        <range>8.9</range>
+        <forcedMissRadius>1.9</forcedMissRadius>
+        <warmupTime>0.5</warmupTime>
+        <noiseRadius>4</noiseRadius>
+        <soundCast>ThrowGrenade</soundCast>
+        <drawHighlightWithLineOfSight>true</drawHighlightWithLineOfSight>
+        <targetParams>
+          <canTargetLocations>true</canTargetLocations>
+        </targetParams>
+        <defaultProjectile>MJArmory_Proj_RefractoryMantleFirefoam</defaultProjectile>
+        <rangedFireRulepack>Combat_RangedFire_Thrown</rangedFireRulepack>
+      </li>
+    </verbs>
+    <colorGenerator Class="ColorGenerator_Options">
+      <options>
+        <li>
+          <weight>10</weight>
+          <only>(0.9,0.9,0.9,1)</only>
+        </li>
+        <li>
+          <weight>10</weight>
+          <only>(0.33,0.33,0.33,1)</only>
+        </li>
+        <li>
+          <weight>10</weight>
+          <only>(0.65,0.65,0.65,1)</only>
+        </li>
+        <li>
+          <weight>6</weight>
+          <min>(0.3,0.3,0.3,1)</min>
+          <max>(0.5,0.5,0.5,1)</max>
+        </li>
+      </options>
+    </colorGenerator>
+  </ThingDef>
+  <ThingDef ParentName="BaseGrenadeProjectile">
+    <defName>MJArmory_Proj_RefractoryMantleFirefoam</defName>
+    <label>firefoam pill</label>
+    <graphicData>
+      <texPath>Things/Projectile/Grenade</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <color>(227, 212, 172)</color>
+      <drawSize>0.75</drawSize>
+    </graphicData>
+    <projectile>
+      <explosionRadius>2.9</explosionRadius>
+      <damageDef>Extinguish</damageDef>
+      <soundExplode>Explosion_EMP</soundExplode>
+      <postExplosionSpawnThingDef>Filth_FireFoam</postExplosionSpawnThingDef>
+      <postExplosionSpawnChance>1</postExplosionSpawnChance>
+      <postExplosionSpawnThingCount>2</postExplosionSpawnThingCount>
+      <applyDamageToExplosionCellsNeighbors>true</applyDamageToExplosionCellsNeighbors>
+      <explosionEffect>ExtinguisherExplosion</explosionEffect>
+      <shadowSize>0.3</shadowSize>
+    </projectile>
+  </ThingDef>
+
+
+  <ThingDef ParentName="HatMakeableBase">
+    <defName>MJArmory_Apparel_Hardscreen</defName>
+    <label>hardscreen</label>
+    <description>A protective screen of semi-transparent plasteel covering the face. A built-in holographic terminal assists with basic tasks, but does not restore full visibility to the user.</description>
+    <techLevel>Spacer</techLevel>
+    <possessionCount>1</possessionCount>
+    <graphicData>
+      <texPath>Apparel/Hardscreen/Screen</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+      <ArmorRating_Sharp>0.50</ArmorRating_Sharp>
+      <ArmorRating_Blunt>0.21</ArmorRating_Blunt>
+      <ArmorRating_Heat>2.0</ArmorRating_Heat>
+      <Insulation_Cold>2</Insulation_Cold>
+      <Insulation_Heat>4</Insulation_Heat>
+      <WorkToMake>2400</WorkToMake>
+      <MaxHitPoints>20</MaxHitPoints>
+      <Mass>0.06</Mass>
+      <EquipDelay>1</EquipDelay>
+    </statBases>
+    <equippedStatOffsets>
+      <WorkSpeedGlobal>0.12</WorkSpeedGlobal>
+      <ShootingAccuracyPawn>-4</ShootingAccuracyPawn>
+      <AimingDelayFactor>-0.35</AimingDelayFactor>
+      <StaggerDurationFactor>1.5</StaggerDurationFactor>
+    </equippedStatOffsets>
+    <costList>
+      <ComponentSpacer>1</ComponentSpacer>
+      <Plasteel>10</Plasteel>
+    </costList>
+    <apparel>
+      <developmentalStageFilter>Child, Adult</developmentalStageFilter>
+      <bodyPartGroups>
+        <li>FullHead</li>
+      </bodyPartGroups>
+      <wornGraphicPath>Apparel/Hardscreen/Screen</wornGraphicPath>
+      <renderSkipFlags>
+        <li>None</li>
+      </renderSkipFlags>
+      <drawData>
+        <dataNorth>
+          <layer>-3</layer>
+        </dataNorth>
+      </drawData>
+      <countsAsClothingForNudity>false</countsAsClothingForNudity>
+      <layers>
+        <li>EyeCover</li>
+      </layers>
+      <useDeflectMetalEffect>true</useDeflectMetalEffect>
+    </apparel>
+    <recipeMaker>
+      <researchPrerequisite>Fabrication</researchPrerequisite>
+      <recipeUsers>
+        <li>FabricationBench</li>
+      </recipeUsers>
+      <displayPriority>100</displayPriority>
+    </recipeMaker>
+  </ThingDef>
+
+
+</Defs>

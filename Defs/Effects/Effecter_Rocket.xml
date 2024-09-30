@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <FleckDef ParentName = "FleckBase_Thrown">
+    <defName>OSArmory_RocketSmoke</defName>
+    <graphicData>
+      <texPath>Things/Mote/Smoke</texPath>
+      <renderInstanced>true</renderInstanced>
+    </graphicData>
+    <altitudeLayer>MoteOverhead</altitudeLayer>
+    <fadeInTime>1</fadeInTime>
+    <solidTime>4.5</solidTime>
+    <fadeOutTime>2.5</fadeOutTime>
+    <growthRate>0.01</growthRate>
+  </FleckDef>
+
+  <FleckDef ParentName = "FleckBase_Thrown">
+    <defName>OSArmory_RocketExhaust</defName>
+    <graphicData>
+      <texPath>Things/Mote/FireGlow</texPath>
+      <shaderType>MoteGlow</shaderType>
+    </graphicData>
+    <altitudeLayer>MoteOverheadLow</altitudeLayer>
+    <solidTime>0.03</solidTime>
+    <fadeOutTime>0.15</fadeOutTime>
+  </FleckDef>
+
+  <EffecterDef>
+    <defName>OSArmory_RocketEffecter</defName>
+    <children>
+      <li>
+        <subEffecterClass>SubEffecter_SprayerChance</subEffecterClass>
+        <fleckDef>OSArmory_RocketSmoke</fleckDef>
+        <chancePerTick>1</chancePerTick>
+        <speed>0.01</speed>
+        <scale>1.2~1.5</scale>
+        <angle>-30~30</angle>
+        <!-- used by OS_Armory.Projectile_RocketComplex. -->
+        <positionLerpFactor>-1</positionLerpFactor>
+      </li>
+      <li>
+        <subEffecterClass>SubEffecter_SprayerChance</subEffecterClass>
+        <fleckDef>OSArmory_RocketExhaust</fleckDef>
+        <chancePerTick>0.5</chancePerTick>
+        <speed>0.008~0.012</speed>
+        <scale>0.8~1.0</scale>
+        <angle>-9~9</angle>
+        <!-- used by OS_Armory.Projectile_RocketComplex. -->
+        <positionLerpFactor>-3</positionLerpFactor>
+      </li>
+    </children>
+  </EffecterDef>
+
+</Defs>

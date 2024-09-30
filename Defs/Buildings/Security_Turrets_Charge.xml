@@ -48,7 +48,7 @@
       </li>
       <li Class="CompProperties_Flickable"/>
       <li Class="CompProperties_Breakdownable"/>
-      <li Class="CompProperties_RefillWithPipes">
+      <li Class="PipeSystem.CompProperties_RefillWithPipes">
         <pipeNet>MJ_ChargeNet</pipeNet>
         <thing>MJ_ChargeMatter</thing>
       </li>
@@ -166,7 +166,7 @@
       </li>
       <li Class="CompProperties_Flickable"/>
       <li Class="CompProperties_Breakdownable"/>
-      <li Class="CompProperties_RefillWithPipes">
+      <li Class="PipeSystem.CompProperties_RefillWithPipes">
         <pipeNet>MJ_ChargeNet</pipeNet>
         <thing>MJ_ChargeMatter</thing>
       </li>

@@ -21,7 +21,8 @@
       <displayPriority>399</displayPriority>
     </recipeMaker>
     <weaponTags>
-      <li>RangedLight</li>
+      <li>SimpleGun</li>
+      <li>Autopistol</li>
     </weaponTags>
     <weaponClasses>
       <li>RangedLight</li>
@@ -99,6 +100,101 @@
   </ThingDef>
 
   <ThingDef ParentName="BaseHumanMakeableGun">
+    <defName>MJArmory_MachineRifle</defName>
+    <label>machine rifle</label>
+    <description>A recoil-operated self-loading rifle. While difficult to use accurately, it is capable of laying down suppressing fire at substantial ranges.</description>
+    <graphicData>
+      <texPath>Weapons/MachineRifle</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>1</drawSize>
+    </graphicData>
+    <uiIconScale>1</uiIconScale>
+    <soundInteract>Interact_Rifle</soundInteract>
+    <recipeMaker>
+      <researchPrerequisite>BlowbackOperation</researchPrerequisite>
+      <skillRequirements>
+        <Crafting>6</Crafting>
+      </skillRequirements>
+      <displayPriority>409</displayPriority>
+    </recipeMaker>
+    <weaponTags>
+      <li>IndustrialGunAdvanced</li>
+    </weaponTags>
+    <weaponClasses>
+      <li>LongShots</li>
+      <li>RangedHeavy</li>
+    </weaponClasses>
+    <tradeTags>
+      <li>WeaponRanged</li>
+    </tradeTags>
+    <statBases>
+      <WorkToMake>22000</WorkToMake>
+      <Mass>4.2</Mass>
+      <AccuracyTouch>0.45</AccuracyTouch>
+      <AccuracyShort>0.58</AccuracyShort>
+      <AccuracyMedium>0.47</AccuracyMedium>
+      <AccuracyLong>0.34</AccuracyLong>
+      <RangedWeapon_Cooldown>2.0</RangedWeapon_Cooldown>
+    </statBases>
+    <costList>
+      <Steel>90</Steel>
+      <ComponentIndustrial>4</ComponentIndustrial>
+    </costList>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>MJArmory_Bullet_MachineRifle</defaultProjectile>
+        <warmupTime>1.1</warmupTime>
+        <range>34.9</range>
+        <burstShotCount>4</burstShotCount>
+        <ticksBetweenBurstShots>17</ticksBetweenBurstShots>
+        <soundCast>Shot_Autopistol</soundCast>
+        <soundCastTail>GunTail_Heavy</soundCastTail>
+        <stopBurstWithoutLos>false</stopBurstWithoutLos>
+        <muzzleFlashScale>9</muzzleFlashScale>
+      </li>
+    </verbs>
+    <tools>
+      <li>
+        <label>grip</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>9</power>
+        <cooldownTime>2</cooldownTime>
+      </li>
+      <li>
+        <label>barrel</label>
+        <capacities>
+          <li>Blunt</li>
+          <li>Poke</li>
+        </capacities>
+        <power>9</power>
+        <cooldownTime>2</cooldownTime>
+      </li>
+    </tools>
+    <comps>
+      <li Class="CompProperties_Biocodable"/>
+    </comps>
+  </ThingDef>
+  <ThingDef ParentName="BaseBullet">
+    <defName>MJArmory_Bullet_MachineRifle</defName>
+    <label>machine rifle bullet</label>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Small</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>1.4</drawSize>
+    </graphicData>
+    <projectile>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>14</damageAmountBase>
+      <speed>70</speed>
+      <stoppingPower>0.8</stoppingPower>
+    </projectile>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseHumanMakeableGun">
     <defName>MJArmory_Perforator</defName>
     <label>perforator</label>
     <description>A massive recoil-sprung falling-block smoothbore devised by outlander tinkers. A crude rendition of the needle guns that inspired it, it makes up for its mediocre accuracy with a spray of lesser flechettes.</description>
@@ -117,11 +213,12 @@
       <displayPriority>410</displayPriority>
     </recipeMaker>
     <weaponTags>
-      <li>RangedHeavy</li>
-      <li>LongShots</li>
+      <li>SniperRifle</li>
+      <li>GunHeavy</li>
     </weaponTags>
     <weaponClasses>
-      <li>RangedLight</li>
+      <li>LongShots</li>
+      <li>RangedHeavy</li>
     </weaponClasses>
     <tradeTags>
       <li>ExoticMisc</li>
@@ -141,7 +238,7 @@
       <RangedWeapon_Cooldown>3.3</RangedWeapon_Cooldown>
     </statBases>
     <costList>
-      <Steel>110</Steel>
+      <Steel>180</Steel>
       <ComponentIndustrial>4</ComponentIndustrial>
     </costList>
     <verbs>

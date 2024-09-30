@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+
+
+  <ThingDef ParentName="BuildingBase">
+    <defName>MJArmory_Turret_GristlerMine</defName>
+    <label>mine projector</label>
+    <description>A self-charging proximity activated mine launcher.</description>
+    <thingClass>OS_Armory.Building_TurretComplex</thingClass>
+    <modExtensions>
+      <li Class="OS_Armory.TurretComplexExtension">
+        <hasLoadedGraphic>true</hasLoadedGraphic>
+        <threatWhenLoaded>true</threatWhenLoaded>
+      </li>
+    </modExtensions>
+    <drawerType>MapMeshAndRealTime</drawerType>
+    <graphicData>
+      <texPath>Building/Security/GristlerMine_Base</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(2, 2)</drawSize>
+      <damageData>
+        <rect>(0.2,0.2,0.6,0.6)</rect>
+      </damageData>
+      <shadowData>
+        <volume>(0.8,0.35,0.8)</volume>
+        <offset>(0,0,-0.05)</offset>
+      </shadowData>
+    </graphicData>
+    <descriptionHyperlinks>
+      <ThingDef>MJArmory_Item_GristlerMine</ThingDef>
+    </descriptionHyperlinks>
+    <minifiedDef>MinifiedThing</minifiedDef>
+    <uiIconPath>Building/Security/GristlerMine_icon</uiIconPath>
+    <uiIconScale>1.6</uiIconScale>
+    <altitudeLayer>Building</altitudeLayer>
+    <stealable>false</stealable>
+    <rotatable>false</rotatable>
+    <size>(1,1)</size>
+    <statBases>
+      <MaxHitPoints>120</MaxHitPoints>
+      <Flammability>0</Flammability>
+      <WorkToBuild>2500</WorkToBuild>
+      <Mass>8</Mass>
+      <Beauty>-20</Beauty>
+      <ShootingAccuracyTurret>0.96</ShootingAccuracyTurret>
+    </statBases>
+    <tickerType>Normal</tickerType>
+    <comps>
+      <li Class="CompProperties_Explosive">
+        <wickTicks>240</wickTicks>
+        <explosiveRadius>6.9</explosiveRadius>
+        <explosiveDamageType>Bomb</explosiveDamageType>
+        <chanceNeverExplodeFromDamage>0.6</chanceNeverExplodeFromDamage>
+      </li>
+      <li Class="CompProperties_Forbiddable"/>
+      <li Class="CompProperties_Refuelable">
+        <fuelLabel>Rockets</fuelLabel>
+        <fuelGizmoLabel>Explosive mine</fuelGizmoLabel>
+        <outOfFuelMessage>Missing explosive mine</outOfFuelMessage>
+        <fuelFilter><thingDefs><li>MJArmory_Item_GristlerMine</li></thingDefs></fuelFilter>
+        <fuelCapacity>1</fuelCapacity>
+        <fuelMultiplier>1</fuelMultiplier>
+        <initialFuelPercent>0</initialFuelPercent>
+        <autoRefuelPercent>1</autoRefuelPercent>
+        <showFuelGizmo>true</showFuelGizmo>
+        <minimumFueledThreshold>1</minimumFueledThreshold>
+        <factorByDifficulty>false</factorByDifficulty>
+        <consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
+        <fuelIconPath>Things/Item/Resource/Chemfuel</fuelIconPath>
+      </li>
+      <li Class="CompProperties_Stunnable">
+        <affectedDamageDefs>
+          <li>Stun</li>
+          <li>EMP</li>
+        </affectedDamageDefs>
+      </li>
+    </comps>
+    <passability>PassThroughOnly</passability>
+    <pathCost>50</pathCost>
+    <fillPercent>0.4</fillPercent>
+    <hasTooltip>true</hasTooltip>
+    <costList>
+      <Steel>40</Steel>
+      <Uranium>5</Uranium>
+      <ComponentIndustrial>2</ComponentIndustrial>
+    </costList>
+    <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+    <designationCategory>Security</designationCategory>
+    <constructionSkillPrerequisite>5</constructionSkillPrerequisite>
+    <building>
+      <combatPower>20</combatPower>
+      <ai_combatDangerous>true</ai_combatDangerous>
+      <turretGunDef>MJArmory_Launcher_GristlerMine</turretGunDef>
+      <turretTopDrawSize>2</turretTopDrawSize>
+      <turretBurstCooldownTime>20</turretBurstCooldownTime>
+      <playTargetAcquiredSound>false</playTargetAcquiredSound>
+      <turretBurstWarmupTime>2.5</turretBurstWarmupTime>
+    </building>
+    <placeWorkers>
+      <li>PlaceWorker_NotUnderRoof</li>
+      <li>PlaceWorker_TurretTop</li>
+      <li>PlaceWorker_ShowTurretRadius</li>
+    </placeWorkers>
+    <researchPrerequisites>
+      <li>RocketswarmLauncher</li>
+    </researchPrerequisites>
+  </ThingDef>
+
+
+  <ThingDef ParentName="ResourceBase">
+    <defName>MJArmory_Item_GristlerMine</defName>
+    <label>rocket-propelled mine</label>
+    <description>A heavy rocket-propelled explosive mine that can be launched from a mortar. A simple guidance system is installed, enabling mid-flight course corrections on an acquired target.</description>
+    <possessionCount>1</possessionCount>
+    <graphicData>
+      <texPath>Item/GristlerMine</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>1.8</drawSize>
+    </graphicData>
+    <soundInteract>Metal_Drop</soundInteract>
+    <soundDrop>Standard_Drop</soundDrop>
+    <tickerType>Normal</tickerType>
+    <stackLimit>1</stackLimit>
+    <techLevel>Industrial</techLevel>
+    <statBases>
+      <MaxHitPoints>120</MaxHitPoints>
+      <MarketValue>120</MarketValue>
+      <Mass>20</Mass>
+      <Flammability>1.0</Flammability>
+      <DeteriorationRate>1.5</DeteriorationRate>
+    </statBases>
+    <thingCategories>
+      <li>MortarShells</li>
+    </thingCategories>
+    <comps>
+      <li Class="CompProperties_Explosive">
+        <explosiveRadius>6.9</explosiveRadius>
+        <explosiveDamageType>Bomb</explosiveDamageType>
+        <startWickHitPointsPercent>0.5</startWickHitPointsPercent>
+        <wickTicks>30~60</wickTicks>
+      </li>
+    </comps>
+    <projectileWhenLoaded>MJArmory_Projectile_GristlerMine</projectileWhenLoaded>
+    <costList>
+      <Steel>40</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+      <Chemfuel>120</Chemfuel>
+    </costList>
+    <recipeMaker>
+      <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+      <effectWorking>Cook</effectWorking>
+      <soundWorking>Recipe_Machining</soundWorking>
+      <workAmount>4000</workAmount>
+      <targetCountAdjustment>1</targetCountAdjustment>
+      <workSkill>Crafting</workSkill>
+      <recipeUsers>
+        <li>TableMachining</li>
+      </recipeUsers>
+      <skillRequirements>
+        <Crafting>4</Crafting>
+      </skillRequirements>
+      <displayPriority>100</displayPriority>
+      <researchPrerequisite>RocketswarmLauncher</researchPrerequisite>
+    </recipeMaker>
+  </ThingDef>
+
+  <ThingDef>
+    <defName>MJArmory_Projectile_GristlerMine</defName>
+    <label>rocket-propelled mine</label>
+    <thingClass>OS_Armory.Projectile_RocketComplex</thingClass>
+    <modExtensions>
+      <li Class="OS_Armory.RocketComplexExtension">
+        <isGuided>true</isGuided>
+        <!-- guidanceTickRate>5</guidanceTickRate -->
+        <radiansPerTick>0.005</radiansPerTick>
+        <targetLockAngle>20</targetLockingAngle>
+        <guidanceActivationDistance>20</guidanceActivationDistance>
+        <trailEffecter>OSArmory_RocketEffecter</trailEffecter>
+      </li>
+    </modExtensions>
+    <category>Projectile</category>
+    <tickerType>Normal</tickerType>
+    <altitudeLayer>Projectile</altitudeLayer>
+    <useHitPoints>False</useHitPoints>
+    <neverMultiSelect>True</neverMultiSelect>
+    <graphicData>
+      <texPath>Projectiles/Projectile_GristlerMine</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>2</drawSize>
+    </graphicData>
+    <projectile>
+      <damageDef>Bomb</damageDef>
+      <explosionRadius>6.9</explosionRadius>
+      <speed>25</speed>
+      <!-- damageAmountBase>50</damageAmountBase -->
+      <arcHeightFactor>100</arcHeightFactor>
+      <flyOverhead>true</flyOverhead>
+      <soundHitThickRoof>Artillery_HitThickRoof</soundHitThickRoof>
+      <soundExplode>MortarBomb_Explode</soundExplode>
+      <soundImpactAnticipate>MortarRound_PreImpact</soundImpactAnticipate>
+      <soundAmbient>MortarRound_Ambient</soundAmbient>
+    </projectile>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseWeaponTurret">
+    <defName>MJArmory_Launcher_GristlerMine</defName>
+    <label>mine projector</label>
+    <description>A lightweight tube for launching rocket-propelled mines.</description>
+    <graphicData>
+      <texPath>Building/Security/GristlerMine_BlankGraphic</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <building>
+      <turretTopLoadedGraphic>
+        <texPath>Building/Security/GristlerMine_Loaded</texPath>
+        <graphicClass>Graphic_Single</graphicClass>
+      </turretTopLoadedGraphic>
+    </building>
+    <statBases>
+      <AccuracyTouch>0.28</AccuracyTouch>
+      <AccuracyShort>0.72</AccuracyShort>
+      <AccuracyMedium>0.66</AccuracyMedium>
+      <AccuracyLong>0.5</AccuracyLong>
+      <RangedWeapon_Cooldown>20</RangedWeapon_Cooldown>
+      <DeteriorationRate>0</DeteriorationRate>
+      <Mass>40</Mass>
+      <Flammability>0</Flammability>
+    </statBases>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <defaultProjectile>MJArmory_Projectile_GristlerMine</defaultProjectile>
+        <warmupTime>2.5</warmupTime>
+        <minRange>34.9</minRange>
+        <range>59.9</range>
+        <consumeFuelPerShot>1</consumeFuelPerShot>
+        <ticksBetweenBurstShots>10</ticksBetweenBurstShots>
+        <burstShotCount>1</burstShotCount>
+        <forcedMissRadius>5.75</forcedMissRadius>
+        <soundCast>RocketswarmLauncher_Fire</soundCast>
+        <soundCastTail>GunTail_Heavy</soundCastTail>
+        <muzzleFlashScale>1</muzzleFlashScale>
+        <requireLineOfSight>false</requireLineOfSight>
+        <ai_AvoidFriendlyFireRadius>8</ai_AvoidFriendlyFireRadius>
+        <targetParams>
+          <canTargetPawns>true</canTargetPawns>
+          <canTargetLocations>true</canTargetLocations>
+          <canTargetBuildings>true</canTargetBuildings>
+        </targetParams>
+      </li>
+    </verbs>
+  </ThingDef>
+
+</Defs>

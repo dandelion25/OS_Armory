@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ResearchTabDef>
+    <defName>MJ_Outlander</defName>
+    <label>Outlander</label>
+  </ResearchTabDef>
+
+  <ResearchProjectDef>
+    <defName></defName>
+    <label></label>
+    <description>.</description>
+    <tab>MJ_Outlander</tab>
+    <baseCost>2000</baseCost>
+    <techLevel>Spacer</techLevel>
+    <prerequisites>
+      <li>Fabrication</li>
+    </prerequisites>
+    <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+    <requiredResearchFacilities>
+      <li>MultiAnalyzer</li>
+    </requiredResearchFacilities>
+    <researchViewX>4.00</researchViewX>
+    <researchViewY>0.40</researchViewY>
+  </ResearchProjectDef>
+
+
+</Defs>

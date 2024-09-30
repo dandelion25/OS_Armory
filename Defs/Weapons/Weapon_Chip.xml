@@ -240,7 +240,7 @@
       <Chemfuel>180</Chemfuel>
     </costList>
     <thingSetMakerTags><li>RewardStandardQualitySuper</li></thingSetMakerTags>
-    <weaponTags><li>SpacerGun</li></weaponTags>
+    <weaponTags><li>SpacerGun</li><li>GunHeavy</li></weaponTags>
     <tradeTags><li>WeaponRanged</li></tradeTags>
     <weaponClasses><li>RangedHeavy</li></weaponClasses>
     <equippedStatOffsets><MoveSpeed>-0.30</MoveSpeed></equippedStatOffsets>
@@ -311,9 +311,9 @@
     <thingSetMakerTags>
       <li>RewardStandardQualitySuper</li>
     </thingSetMakerTags>
-    <weaponTags><li>SpacerGun</li></weaponTags>
+    <weaponTags><li>SpacerGun</li><li>SniperRifle</li></weaponTags>
     <tradeTags><li>WeaponRanged</li></tradeTags>
-    <weaponClasses><li>RangedHeavy</li></weaponClasses>
+    <weaponClasses><li>LongShots</li></weaponClasses>
     <verbs>
       <li>
         <verbClass>Verb_Shoot</verbClass>

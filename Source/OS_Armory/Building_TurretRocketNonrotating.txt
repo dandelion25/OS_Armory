@@ -1,0 +1,35 @@
+﻿not using this at the moment; maybe later?
+
+using System;
+using RimWorld;
+using UnityEngine;
+using Verse;
+
+namespace OS_Armory;
+
+public class Building_TurretRocketNonrotating : Building_TurretGun
+{
+    private BuildingProperties turretTopProperties => def.building.turretGunDef.building;
+
+    /*public override Graphic Graphic
+    {
+        get
+        {
+            if (refuelableComp.IsFull) // this is super jank, man
+            {
+                return def.building.turretGunDef.building.turretTopLoadedGraphic.Graphic;
+            }
+            return base.Graphic;
+        }
+    }*/
+    protected override void DrawAt(Vector3 drawLoc, bool flip = false)
+    {
+        base.DrawAt(drawLoc, flip);
+        if (refuelableComp.IsFull)
+        {
+            //Graphics.DrawMesh(mesh: MeshPool.plane10, matrix: Matrix4x4.TRS(drawLoc, new Quaternion(0,0,0,0), new Vector3(turretTopProperties.turretTopDrawSize, 1f, turretTopProperties.turretTopDrawSize)),  material: turretTopProperties.turretTopLoadedMat, layer: 2);
+            Graphics.DrawMesh(MeshPool.GridPlane(new Vector2(turretTopProperties.turretTopDrawSize, turretTopProperties.turretTopDrawSize)), drawLoc, base.Rotation.AsQuat, def.building.turretGunDef.building.turretTopLoadedGraphic.Graphic.MatAt(base.Rotation), 1);
+        }
+        
+    }
+}

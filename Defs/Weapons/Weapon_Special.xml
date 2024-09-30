@@ -24,7 +24,7 @@
     </statBases>
     <techLevel>Spacer</techLevel>
     <weaponTags>
-      <li>Gun</li>
+      <li>GunHeavy</li>
     </weaponTags>
     <weaponClasses>
       <li>RangedHeavy</li>
@@ -53,7 +53,7 @@
       <li>
         <verbClass>Verb_ShootBeam</verbClass>
         <hasStandardCommand>true</hasStandardCommand>
-        <iconPath>Projectiles/HellBeam/HellBeam</iconPath>
+        <!-- iconPath>Projectiles/HellBeam/HellBeam</iconPath -->
         <warmupTime>5.0</warmupTime>
         <ai_AvoidFriendlyFireRadius>5</ai_AvoidFriendlyFireRadius>
         <range>46.9</range>
@@ -105,7 +105,7 @@
         <cooldownTime>2.6</cooldownTime>
       </li>
     </tools>
-    <comps Inherit="False">
+    <comps>
       <li Class="CompProperties_Forbiddable"/>
       <li Class="CompProperties_Biocodable"/>
       <li>
